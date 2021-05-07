@@ -1,11 +1,14 @@
-import java.awt.Dimension;
-
+package championClash;
 import javax.swing.JFrame;
 
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
 public class ChampionsClash {
+	
+	public ChampionsClash() {
+		
+	}
 
 	public static void main(String args[]) {
 		
