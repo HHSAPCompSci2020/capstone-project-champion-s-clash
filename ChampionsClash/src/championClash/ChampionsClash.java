@@ -10,6 +10,7 @@ public class ChampionsClash {
 	
 	public ChampionsClash() {
 		
+		
 	}
 
 	public static void main(String args[]) {
