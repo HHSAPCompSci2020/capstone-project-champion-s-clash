@@ -1,5 +1,5 @@
 package championClash;
 
-public class Forest {
+public class Forest extends Map {
 
 }

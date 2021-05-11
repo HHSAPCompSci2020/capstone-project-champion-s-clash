@@ -1,5 +1,5 @@
 package championClash;
 
-public class ElvishRunes {
+public class ElvishRunes extends Map{
 
 }

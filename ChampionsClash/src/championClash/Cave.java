@@ -1,5 +1,5 @@
 package championClash;
 
-public class Cave {
+public class Cave extends Map{
 
 }

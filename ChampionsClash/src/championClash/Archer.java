@@ -1,5 +1,5 @@
 package championClash;
 
-public class Archer {
+public class Archer extends Champion{
 
 }
