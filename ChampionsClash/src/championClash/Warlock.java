@@ -116,7 +116,7 @@ public class Warlock extends Champion{
         }
         else if(str.equals("D"))
         {
-            champX = champX + 7;
+            champX = champX + 10;
             champHeadedRight = true;
         if(!champCollided)
         {
@@ -129,7 +129,7 @@ public class Warlock extends Champion{
         }
         else if(str.equals("A"))
         {
-            champX = champX - 7;
+            champX = champX - 10;
             champHeadedRight = false;
             if(!champCollided)
                 sprite.play("Fall");
