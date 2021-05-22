@@ -3,8 +3,8 @@ package championClash;
 public class Launcher {
 
 	public static void main(String[] args) {
-		new Display("Champion's Clash!", 300, 300);
-
+		Game game = new Game("Champion's Clash!", 1170, 720);
+		game.start();
 	}
 
 }
