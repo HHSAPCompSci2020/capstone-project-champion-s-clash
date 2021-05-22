@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class Warrior extends Champion{
 
-	public Warrior(int x, int y) {
+	public Warrior(float x, float y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -16,8 +16,8 @@ public class Warrior extends Champion{
 	}
 
 	@Override
-	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+	public void draw(Graphics g) {
+		g.drawImage(Asset.warriorStand, (int)x, (int)y, null);
 		
 	}
 

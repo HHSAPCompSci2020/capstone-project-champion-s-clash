@@ -6,7 +6,7 @@ public abstract class Champion extends Entity{
 	
 	protected int health, speed, damage;
 
-	public Champion(int x, int y) {
+	public Champion(float x, float y) {
 		super(x, y);
 		
 	}

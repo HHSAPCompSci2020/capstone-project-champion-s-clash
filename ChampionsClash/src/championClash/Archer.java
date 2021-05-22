@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class Archer extends Champion{
 
-	public Archer(int x, int y) {
+	public Archer(float x, float y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -16,8 +16,8 @@ public class Archer extends Champion{
 	}
 
 	@Override
-	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+	public void draw(Graphics g) {
+		g.drawImage(Asset.archerStand, (int)x, (int)y, null);
 		
 	}
 

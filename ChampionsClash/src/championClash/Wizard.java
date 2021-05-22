@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class Wizard extends Champion{
 
-	public Wizard(int x, int y) {
+	public Wizard(float x, float y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -16,8 +16,8 @@ public class Wizard extends Champion{
 	}
 
 	@Override
-	public void render(Graphics g) {
-		// TODO Auto-generated method stub
+	public void draw(Graphics g) {
+		g.drawImage(Asset.wizardStand, (int)x, (int)y, null);
 		
 	}
 
