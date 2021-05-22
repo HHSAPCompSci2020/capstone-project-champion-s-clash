@@ -2,6 +2,9 @@ package championClash;
 
 import java.awt.image.BufferedImage;
 
+import championClash.ImageLoader;
+import characters.SpriteSheet;
+
 public class Asset {
 	private static final int width = 190, height = 175;
 	public static BufferedImage warriorStand, warriorWalk, warriorRun, warriorAttack;

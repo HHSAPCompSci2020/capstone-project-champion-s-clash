@@ -1,10 +1,13 @@
-package championClash;
+package characters;
 
 import java.awt.Graphics;
 
-public class Wizard extends Champion{
+import championClash.Asset;
+import championClash.Champion;
 
-	public Wizard(float x, float y) {
+public class Warrior extends Champion{
+
+	public Warrior(float x, float y) {
 		super(x, y);
 		// TODO Auto-generated constructor stub
 	}
@@ -17,7 +20,7 @@ public class Wizard extends Champion{
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Asset.wizardStand, (int)x, (int)y, null);
+		g.drawImage(Asset.warriorStand, (int)x, (int)y, null);
 		
 	}
 
