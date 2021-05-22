@@ -1,4 +1,4 @@
-package championClash;
+ package championClash;
 
 
 
@@ -31,7 +31,7 @@ public class DrawingSurface extends PApplet {
 	// line is executed again.
 	public void draw() { 
 		background(255);   // Clear the screen with a white background
-		
+		 
 		textSize(12);
 		fill(0);
 		
