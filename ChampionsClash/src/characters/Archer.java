@@ -1,6 +1,9 @@
-package championClash;
+package characters;
 
 import java.awt.Graphics;
+
+import championClash.Asset;
+import championClash.Champion;
 
 public class Archer extends Champion{
 

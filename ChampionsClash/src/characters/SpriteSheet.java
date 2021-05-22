@@ -1,4 +1,4 @@
-package championClash;
+package characters;
 
 import java.awt.image.BufferedImage;
 
