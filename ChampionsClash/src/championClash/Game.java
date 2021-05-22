@@ -18,6 +18,7 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	private State gameState;
+	private State menuState;
 	
 	public Game(String title, int width, int height){
 		this.width = width;
@@ -29,7 +30,8 @@ public class Game implements Runnable {
 		display = new Display(title, width, height);
 		Asset.initialize();
 		
-		gameState = new GameState();
+		gameState = new GameState(this);
+		menuState = new MenuState(this);
 		State.setState(gameState);
 	}
 	

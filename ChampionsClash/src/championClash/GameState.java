@@ -4,6 +4,11 @@ import java.awt.Graphics;
 
 public class GameState extends State{
 
+	Warrior warrior;
+	public GameState(Game game) {
+		super(game);
+		warrior = new Warrior(100, 100);
+	}
 	@Override
 	public void tick() {
 		
@@ -12,7 +17,7 @@ public class GameState extends State{
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Asset.warriorStand, 0, 0, null);
+		warrior.draw(g);
 		
 	}
 
