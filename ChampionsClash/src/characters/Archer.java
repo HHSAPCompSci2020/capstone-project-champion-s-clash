@@ -20,11 +20,13 @@ public class Archer extends Champion{
 	public void tick() {
 		getInput();
 		move();
+		
+		yMove = (float) (yMove * gravity + 0.65);
 	}
+	
 	
 	private void getInput(){
 		xMove = 0;
-		yMove = 0;
 		
 			if(game.getKeyManager().left==true) {
 				xMove-=speed;
@@ -32,6 +34,10 @@ public class Archer extends Champion{
 			
 			if(game.getKeyManager().right==true) {
 				xMove+=speed;
+			}
+			
+			if(game.getKeyManager().jump==true) {
+				accelerate(0, -5);
 			}
 		/*
 		

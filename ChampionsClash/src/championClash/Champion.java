@@ -14,6 +14,7 @@ public abstract class Champion extends Entity{
 	protected int health;
 	protected float speed;
 	protected float xMove, yMove;
+	protected double gravity;
 
 	public Champion(float x, float y, int width, int height) {
 		super(x, y, width, height);
@@ -21,6 +22,13 @@ public abstract class Champion extends Entity{
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+		gravity = 0.95;
+	}
+	
+	public void accelerate(double ax, double ay) {
+		xMove += ax;
+		yMove += ay;
+		
 	}
 	
 	public void move(){

@@ -14,17 +14,20 @@ public class Warrior extends Champion{
 		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
 		speed = 4;
+		yMove = 0;
 	}
 
 	@Override
 	public void tick() {
 		getInput();
 		move();
+		
+		yMove = (float) (yMove * gravity + 0.65);
 	}
+	
 	
 	private void getInput(){
 		xMove = 0;
-		yMove = 0;
 		
 			if(game.getKeyManager().left==true) {
 				xMove-=speed;
@@ -33,6 +36,12 @@ public class Warrior extends Champion{
 			if(game.getKeyManager().right==true) {
 				xMove+=speed;
 			}
+			
+			if(game.getKeyManager().jump==true) {
+				accelerate(0, -5);
+			}
+			
+			
 		/*
 		
 		if(isPlayer1) {
