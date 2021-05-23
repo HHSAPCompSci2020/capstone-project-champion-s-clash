@@ -11,7 +11,7 @@ public class Archer extends Champion{
 	private Game game;
 
 	public Archer(Game game, float x, float y) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
+		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
 		speed = 6;
 	}
