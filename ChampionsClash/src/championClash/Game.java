@@ -18,8 +18,8 @@ public class Game implements Runnable {
 	private Graphics g;
 	
 	//States
-	private State gameState;
-	private State menuState;
+	public State gameState;
+	public State menuState;
 	
 	public Rectangle floor =  new Rectangle(0, 600, 500, 1170);
 	public Rectangle platform1 = new Rectangle(390, 450, 200, 100);
@@ -28,22 +28,28 @@ public class Game implements Runnable {
 	
 	//Input
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 	}
 	
 	private void initialize(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Asset.initialize();
 		
 		gameState = new GameState(this);
 		menuState = new MenuState(this);
-		State.setState(gameState);
+		State.setState(menuState);
 	}
 	
 	private void tick(){
@@ -116,6 +122,10 @@ public class Game implements Runnable {
 	
 	public KeyManager getKeyManager(){
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager(){
+		return mouseManager;
 	}
 	
 	public synchronized void start(){
