@@ -1,5 +1,6 @@
 package characters;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import championClash.Asset;
@@ -14,6 +15,10 @@ public class Wizard extends Champion{
 		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
 		speed = 5;
+		bounds.x= 15;
+		bounds.y = 32;
+		bounds.width = 32;
+		bounds.height = 68;
 	}
 
 	@Override
@@ -56,6 +61,8 @@ public class Wizard extends Champion{
 	@Override
 	public void draw(Graphics g) {
 		g.drawImage(Asset.wizardStand, (int) x, (int) y, width, height, null);
+		g.setColor(Color.red);
+		g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 
 }
