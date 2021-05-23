@@ -20,14 +20,18 @@ public class Game implements Runnable {
 	private State gameState;
 	private State menuState;
 	
+	private KeyManager keyManager;
+	
 	public Game(String title, int width, int height){
 		this.width = width;
 		this.height = height;
 		this.title = title;
+		keyManager = new KeyManager();
 	}
 	
 	private void initialize(){
 		display = new Display(title, width, height);
+		display.getFrame().addKeyListener(keyManager);
 		Asset.initialize();
 		
 		gameState = new GameState(this);
@@ -99,6 +103,10 @@ public class Game implements Runnable {
 		
 		stop();
 		
+	}
+	
+	public KeyManager getKeyManager() {
+		return keyManager;
 	}
 	
 	public synchronized void start(){

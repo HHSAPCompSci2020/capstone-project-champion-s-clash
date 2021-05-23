@@ -2,6 +2,8 @@ package championClash;
 
 import java.awt.Graphics;
 
+import characters.Warrior;
+
 
 public class GameState extends State{
 
