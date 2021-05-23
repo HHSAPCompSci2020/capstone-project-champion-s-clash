@@ -31,7 +31,7 @@ public class Game implements Runnable {
 		keyManager = new KeyManager();
 	}
 	
-	private void init(){
+	private void initialize(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		Asset.initialize();
@@ -72,7 +72,7 @@ public class Game implements Runnable {
 	
 	public void run(){
 		
-		init();
+		initialize();
 		
 		int fps = 60;
 		double timePerTick = 1000000000 / fps;
