@@ -14,9 +14,9 @@ public class GameState extends State{
 	Archer archer;
 	public GameState(Game game) {
 		super(game);
-		warrior = new Warrior(game, 100, 100);
-		wizard = new Wizard(game, 400, 100);
-		archer = new Archer(game, 700, 100);
+		warrior = new Warrior(game, 100, 500);
+		wizard = new Wizard(game, 400, 500);
+		archer = new Archer(game, 700, 500);
 
 	}
 	@Override

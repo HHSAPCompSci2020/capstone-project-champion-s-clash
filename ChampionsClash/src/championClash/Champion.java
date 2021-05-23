@@ -8,8 +8,8 @@ public abstract class Champion extends Entity{
 	
 	public static final int DEFAULT_HEALTH = 100;
 	public static final float DEFAULT_SPEED = 30f;
-	public static final int DEFAULT_CHAMPION_WIDTH = 64,
-							DEFAULT_CHAMPION_HEIGHT = 64;
+	public static final int DEFAULT_CHAMPION_WIDTH = 100,
+							DEFAULT_CHAMPION_HEIGHT = 100;
 	
 	protected int health;
 	protected float speed;
