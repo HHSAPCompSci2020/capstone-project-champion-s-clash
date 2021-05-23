@@ -17,9 +17,11 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	//States
 	private State gameState;
 	private State menuState;
 	
+	//Input
 	private KeyManager keyManager;
 	
 	public Game(String title, int width, int height){
@@ -29,7 +31,7 @@ public class Game implements Runnable {
 		keyManager = new KeyManager();
 	}
 	
-	private void initialize(){
+	private void init(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		Asset.initialize();
@@ -39,17 +41,14 @@ public class Game implements Runnable {
 		State.setState(gameState);
 	}
 	
-	
-	
 	private void tick(){
-		if(State.getState() != null) {
+		keyManager.tick();
+		
+		if(State.getState() != null)
 			State.getState().tick();
-		}
-		
-		
 	}
 	
-	private void draw(){
+	private void render(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
 			display.getCanvas().createBufferStrategy(3);
@@ -60,10 +59,11 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		//Draw Here!
 		
-		if(State.getState() != null) {
+		if(State.getState() != null)
 			State.getState().draw(g);
-		}
 		
+		g.setColor(Color.GRAY);
+		g.fillRect(0, 600, 1170, 500);
 		
 		//End Drawing!
 		bs.show();
@@ -72,10 +72,10 @@ public class Game implements Runnable {
 	
 	public void run(){
 		
-		initialize();
+		init();
 		
 		int fps = 60;
-		double timePerTick = 1000000000/fps;
+		double timePerTick = 1000000000 / fps;
 		double delta = 0;
 		long now;
 		long lastTime = System.nanoTime();
@@ -85,16 +85,17 @@ public class Game implements Runnable {
 		while(running){
 			now = System.nanoTime();
 			delta += (now - lastTime) / timePerTick;
-			timer += now-lastTime;
+			timer += now - lastTime;
 			lastTime = now;
-			if(delta >=1) {
+			
+			if(delta >= 1){
 				tick();
-				draw();
+				render();
 				ticks++;
 				delta--;
 			}
 			
-			if(timer>=1000000000) {
+			if(timer >= 1000000000){
 				System.out.println("Ticks and Frames: " + ticks);
 				ticks = 0;
 				timer = 0;
@@ -105,7 +106,7 @@ public class Game implements Runnable {
 		
 	}
 	
-	public KeyManager getKeyManager() {
+	public KeyManager getKeyManager(){
 		return keyManager;
 	}
 	

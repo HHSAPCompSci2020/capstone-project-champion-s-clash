@@ -11,26 +11,44 @@ public class Archer extends Champion{
 	private Game game;
 
 	public Archer(Game game, float x, float y) {
-		super(x, y);
-		this.game=game;
-		health = 100;
+		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
+		this.game = game;
 		speed = 6;
-		damage = 3;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void tick() {
-		if(game.getKeyManager().up==true) {
-			
-		}
+		getInput();
+		move();
+	}
+	
+	private void getInput(){
+		xMove = 0;
+		yMove = 0;
 		
+			if(game.getKeyManager().left==true) {
+				xMove-=speed;
+			}
+			
+			if(game.getKeyManager().right==true) {
+				xMove+=speed;
+			}
+		/*
+		
+		if(isPlayer1) {
+			if(game.getKeyManager().left1==true) {
+				xMove-=speed;
+			}
+			
+			if(game.getKeyManager().right1==true) {
+				xMove+=speed;
+			}
+		}
+		*/
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Asset.archerStand, (int)x, (int)y, null);
-		
+		g.drawImage(Asset.archerStand, (int) x, (int) y, width, height, null);
 	}
-
 }
