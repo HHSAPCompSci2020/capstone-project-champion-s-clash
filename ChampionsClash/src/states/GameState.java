@@ -25,9 +25,10 @@ public class GameState extends State{
 	
 	public Rectangle floor =  new Rectangle(0, 600, 500, 1170);
 	public Rectangle ceiling =  new Rectangle(0, 0, 500, 1170);
-	public Rectangle wallLeft =  new Rectangle(-500, 0, 1000, 500);
-	public Rectangle wallRight =  new Rectangle(1160, 0, 1000, 500);
+	public Rectangle wallLeft =  new Rectangle(-500, 0, 500, 2000);
+	public Rectangle wallRight =  new Rectangle(1170, 0, 500, 2000);
 	public Rectangle platform1 = new Rectangle(390, 450, 200, 100);
+	
 	public Rectangle platform2 = new Rectangle(600, 450, 40, 200);
 	public Rectangle platform3 = new Rectangle(900, 450, 40, 200);
 	
@@ -86,8 +87,8 @@ public class GameState extends State{
 			champ.setY((int) (floor.y - 112));
 			return true;
 		}
-		if(champ.getY() <= ceiling.y) {
-			champ.setY((int) (ceiling.y + 4));
+		if(champ.getY() < ceiling.y) {
+			champ.setY((int) (ceiling.y));
 			return true;
 		}
 		if(champ.getX() <= wallLeft.x + 500) {
@@ -110,6 +111,28 @@ public class GameState extends State{
 			champ.setY(350);
 			return true;
 		}
+		
+		if(((champ.getX() >= platform2.x && champ.getX() <= platform2.x+platform2.width) ||(champ.getX() +32>= platform2.x && champ.getX() + 32 <= platform2.x+platform2.width)) && champ.getY() + 32>platform2.y+platform2.height && champ.getY()<platform2.y+platform2.height){
+			champ.setY(650);
+			return true;
+		}
+		
+		if(((champ.getX() >= platform3.x && champ.getX() <= platform3.x+platform3.width) ||(champ.getX() +32>= platform3.x && champ.getX() + 32 <= platform3.x+platform3.width)) && champ.getY() + 32>platform3.y+platform3.height && champ.getY()<platform3.y+platform3.height){
+			champ.setY(650);
+			return true;
+		}
+		
+		if(((champ.getX() >= platform2.x && champ.getX() <= platform2.x+platform2.width) ||(champ.getX() +32>= platform2.x && champ.getX() + 32 <= platform2.x+platform2.width)) && champ.getY()<platform2.y && champ.getY()+32>=platform2.y){
+			champ.setY((float)platform2.y);
+			return true;
+		}
+		
+		if(((champ.getX() >= platform3.x && champ.getX() <= platform3.x+platform3.width) ||(champ.getX() +32>= platform3.x && champ.getX() + 32 <= platform3.x+platform3.width)) && champ.getY()<platform3.y && champ.getY()+32>=platform3.y){
+			champ.setY((float)platform3.y);
+			return true;
+		}
+		
+		
 		
 			
 		return false;
