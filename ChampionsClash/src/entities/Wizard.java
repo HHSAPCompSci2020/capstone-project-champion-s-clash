@@ -61,7 +61,7 @@ public class Wizard extends Champion{
 	public void draw(Graphics g) {
 		g.drawImage(Asset.wizardStand, (int) x, (int) y, width, height, null);
 		//g.setColor(Color.red);
-		//g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
+		g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 
 }

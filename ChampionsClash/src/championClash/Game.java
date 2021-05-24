@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import entities.Champion;
 import input.KeyManager;
 import input.MouseManager;
 import states.GameState;
@@ -155,6 +156,12 @@ public class Game implements Runnable {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean hitsWorld(Champion champ) {
+		
+		
+		return false;
 	}
 	
 }

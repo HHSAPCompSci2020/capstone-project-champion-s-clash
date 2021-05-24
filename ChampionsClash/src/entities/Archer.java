@@ -24,7 +24,7 @@ public class Archer extends Champion{
 	public void tick() {
 		getInput();
 		move();
-		
+
 		yMove = (float) (yMove * gravity + 0.65);
 	}
 	
@@ -61,6 +61,6 @@ public class Archer extends Champion{
 	public void draw(Graphics g) {
 		g.drawImage(Asset.archerStand, (int) x, (int) y, width, height, null);
 		//g.setColor(Color.red);
-		//g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
+		g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 }

@@ -2,6 +2,8 @@ package entities;
 
 import java.awt.Graphics;
 
+import championClash.Rectangle;
+
 public abstract class Champion extends Entity{
 	
 	public static final int DEFAULT_HEALTH = 100;
@@ -13,6 +15,8 @@ public abstract class Champion extends Entity{
 	protected float speed;
 	protected float xMove, yMove;
 	protected double gravity;
+	
+	public Rectangle hitBox;
 
 	public Champion(float x, float y, int width, int height) {
 		super(x, y, width, height);
@@ -20,6 +24,7 @@ public abstract class Champion extends Entity{
 		speed = DEFAULT_SPEED;
 		xMove = 0;
 		yMove = 0;
+//		hitBox = new Rectangle(bounds.height, bounds.width, (int)x+bounds.x, (int)y+bounds.y);
 		gravity = 0.95;
 	}
 	
