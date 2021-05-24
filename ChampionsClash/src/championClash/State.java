@@ -5,6 +5,7 @@ import java.awt.Graphics;
 public abstract class State {
 
 	private static State currentState = null;
+	protected Game game;
 	
 	public static void setState(State state){
 		currentState = state;
@@ -14,7 +15,13 @@ public abstract class State {
 		return currentState;
 	}
 	
-	protected Game game;
+	//CLASS
+	
+	protected Handler handler;
+	
+	public State(Handler handler){
+		this.handler = handler;
+	}
 	
 	public State(Game game){
 		this.game = game;

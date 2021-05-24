@@ -1,9 +1,15 @@
 package championClash;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class MenuState extends State{
 
+	public MenuState(Handler handler) {
+		super(handler);
+		// TODO Auto-generated constructor stub
+	}
+	
 	public MenuState(Game game) {
 		super(game);
 		// TODO Auto-generated constructor stub
@@ -11,14 +17,14 @@ public class MenuState extends State{
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		g.setColor(Color.red);
+		g.fillRect(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 8, 8);
 	}
 
 }
