@@ -60,7 +60,7 @@ public class Archer extends Champion{
 	@Override
 	public void draw(Graphics g) {
 		g.drawImage(Asset.archerStand, (int) x, (int) y, width, height, null);
-		g.setColor(Color.red);
+		//g.setColor(Color.red);
 		//g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 }
