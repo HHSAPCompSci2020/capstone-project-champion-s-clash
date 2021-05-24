@@ -4,13 +4,20 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import championClash.UIManager;
+
 public class MouseManager implements MouseListener, MouseMotionListener{
 	
 	private boolean pressed;
 	private int mouseX, mouseY;
+	private UIManager uiManager;
 	
 	public MouseManager() {
 		
+	}
+	
+	public void setUIManager(UIManager uiManager) {
+		this.uiManager=uiManager;
 	}
 	
 	public boolean isPressed() {
@@ -34,6 +41,10 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
 		mouseY = e.getY();
+		
+		if(uiManager != null) {
+			uiManager.onMouseMove(e);
+		}
 	}
 
 	@Override
@@ -54,6 +65,10 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 	public void mouseReleased(MouseEvent e) {
 		if(e.getButton()==MouseEvent.BUTTON1) {
 			pressed = false;
+		}
+		
+		if(uiManager != null) {
+			uiManager.onMouseRelease(e);
 		}
 		
 	}
