@@ -28,7 +28,6 @@ public class GameState extends State{
 	public Rectangle wallLeft =  new Rectangle(-500, 0, 500, 2000);
 	public Rectangle wallRight =  new Rectangle(1170, 0, 500, 2000);
 	public Rectangle platform1 = new Rectangle(390, 450, 200, 100);
-	
 	public Rectangle platform2 = new Rectangle(600, 450, 40, 200);
 	public Rectangle platform3 = new Rectangle(900, 450, 40, 200);
 	
@@ -76,15 +75,10 @@ public class GameState extends State{
 		hitsWorld(archer);
 		hitsWorld(warrior);
 		
-//		platform1.intersects(champ.hitBox) ||
-//		platform2.intersects(champ.hitBox) ||
-//		platform3.intersects(champ.hitBox)) {
-//	champ.setyMove(0);
-		
 	}
 	public boolean hitsWorld(Champion champ) {
 		if(champ.getY() + champ.getHeight() >= floor.y) {
-			champ.setY((int) (floor.y - 112));
+			champ.setY((int) (floor.y) - 105);
 			return true;
 		}
 		if(champ.getY() < ceiling.y) {
@@ -96,7 +90,7 @@ public class GameState extends State{
 			return true;
 		}
 		if(champ.getX() + 32 >= wallRight.x) {
-			champ.setX((int) (wallRight.x - 42));
+			champ.setX((int) (wallRight.x - 32));
 			return true;
 		}
 		if(champ.getX() >= 345 && champ.getX() <= 420 && champ.getY() >= 450) {
@@ -111,29 +105,22 @@ public class GameState extends State{
 			champ.setY(350);
 			return true;
 		}
-		
-		if(((champ.getX() >= platform2.x && champ.getX() <= platform2.x+platform2.width) ||(champ.getX() +32>= platform2.x && champ.getX() + 32 <= platform2.x+platform2.width)) && champ.getY() + 32>platform2.y+platform2.height && champ.getY()<platform2.y+platform2.height){
-			champ.setY(650);
+		if(champ.getX() >= platform2.x - 40 && champ.getX() <= platform2.x + platform2.width - 10 && champ.getY() + champ.getHeight() >= platform2.y && champ.getY() + champ.getHeight() <= platform2.y + platform2.height/2) {
+			champ.setY((float) platform2.y - champ.getHeight());
 			return true;
 		}
-		
-		if(((champ.getX() >= platform3.x && champ.getX() <= platform3.x+platform3.width) ||(champ.getX() +32>= platform3.x && champ.getX() + 32 <= platform3.x+platform3.width)) && champ.getY() + 32>platform3.y+platform3.height && champ.getY()<platform3.y+platform3.height){
-			champ.setY(650);
+		if(champ.getX() >= platform2.x - 40 && champ.getX() <= platform2.x + platform2.width - 10 && champ.getY() >= platform2.y + platform2.height/2 - 20 && champ.getY() <= platform2.y + platform2.height) {
+			champ.setyMove((float) 5);
 			return true;
 		}
-		
-		if(((champ.getX() >= platform2.x && champ.getX() <= platform2.x+platform2.width) ||(champ.getX() +32>= platform2.x && champ.getX() + 32 <= platform2.x+platform2.width)) && champ.getY()<platform2.y && champ.getY()+32>=platform2.y){
-			champ.setY((float)platform2.y);
+		if(champ.getX() >= platform3.x - 40 && champ.getX() <= platform3.x + platform3.width - 10 && champ.getY() + champ.getHeight() >= platform3.y && champ.getY() + champ.getHeight() <= platform3.y + platform3.height/2) {
+			champ.setY((float) platform3.y - champ.getHeight());
 			return true;
 		}
-		
-		if(((champ.getX() >= platform3.x && champ.getX() <= platform3.x+platform3.width) ||(champ.getX() +32>= platform3.x && champ.getX() + 32 <= platform3.x+platform3.width)) && champ.getY()<platform3.y && champ.getY()+32>=platform3.y){
-			champ.setY((float)platform3.y);
+		if(champ.getX() >= platform3.x - 40 && champ.getX() <= platform3.x + platform3.width - 10 && champ.getY() >= platform3.y + platform3.height/2 - 20 && champ.getY() <= platform3.y + platform3.height) {
+			champ.setyMove((float) 5);
 			return true;
 		}
-		
-		
-		
 			
 		return false;
 	}
