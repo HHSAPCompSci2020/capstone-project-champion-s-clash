@@ -1,6 +1,9 @@
-package championClash;
+package states;
 
 import java.awt.Graphics;
+
+import championClash.Game;
+import championClash.Handler;
 
 public abstract class State {
 

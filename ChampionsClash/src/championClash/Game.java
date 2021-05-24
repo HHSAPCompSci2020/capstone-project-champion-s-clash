@@ -5,10 +5,16 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
+import input.KeyManager;
+import input.MouseManager;
+import states.GameState;
+import states.MenuState;
+import states.State;
+
 public class Game implements Runnable {
 
 	private Display display;
-	public int width, height;
+	private int width, height;
 	public String title;
 	
 	private boolean running = false;
@@ -17,13 +23,18 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	
 	//States
 	public State gameState;
-	public  State menuState;
+	public State menuState;
 	
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
+	
+	
+	//Handler
+	private Handler handler;
 	
 	public Game(String title, int width, int height){
 		this.width = width;
@@ -33,7 +44,7 @@ public class Game implements Runnable {
 		mouseManager = new MouseManager();
 	}
 	
-	private void initialize(){
+	private void init(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
 		display.getFrame().addMouseListener(mouseManager);
@@ -42,8 +53,10 @@ public class Game implements Runnable {
 		display.getCanvas().addMouseMotionListener(mouseManager);
 		Asset.initialize();
 		
-		gameState = new GameState(this);
-		menuState = new MenuState(this);
+		handler = new Handler(this);
+		
+		gameState = new GameState(handler.getGame());
+		menuState = new MenuState(handler);
 		State.setState(menuState);
 	}
 	
@@ -54,7 +67,7 @@ public class Game implements Runnable {
 			State.getState().tick();
 	}
 	
-	private void render(){
+	private void draw(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
 			display.getCanvas().createBufferStrategy(3);
@@ -68,7 +81,6 @@ public class Game implements Runnable {
 		if(State.getState() != null)
 			State.getState().draw(g);
 		
-		
 		//End Drawing!
 		bs.show();
 		g.dispose();
@@ -76,7 +88,7 @@ public class Game implements Runnable {
 	
 	public void run(){
 		
-		initialize();
+		init();
 		
 		int fps = 60;
 		double timePerTick = 1000000000 / fps;
@@ -94,7 +106,7 @@ public class Game implements Runnable {
 			
 			if(delta >= 1){
 				tick();
-				render();
+				draw();
 				ticks++;
 				delta--;
 			}
@@ -146,3 +158,4 @@ public class Game implements Runnable {
 	}
 	
 }
+

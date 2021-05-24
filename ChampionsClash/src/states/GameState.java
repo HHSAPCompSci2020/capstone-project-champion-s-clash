@@ -1,11 +1,13 @@
-package championClash;
+package states;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import characters.Archer;
-import characters.Warrior;
-import characters.Wizard;
+import championClash.Game;
+import championClash.Rectangle;
+import entities.Archer;
+import entities.Warrior;
+import entities.Wizard;
 
 
 public class GameState extends State{

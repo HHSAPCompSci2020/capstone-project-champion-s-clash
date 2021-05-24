@@ -1,6 +1,9 @@
 package championClash;
 
-	public class Handler {
+import input.KeyManager;
+import input.MouseManager;
+
+public class Handler {
 		
 		private Game game;
 		

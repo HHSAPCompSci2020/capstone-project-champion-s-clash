@@ -1,7 +1,10 @@
-package championClash;
+package states;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
+import championClash.Game;
+import championClash.Handler;
 
 public class MenuState extends State{
 
@@ -17,14 +20,17 @@ public class MenuState extends State{
 
 	@Override
 	public void tick() {
-		
+		if(handler.getMouseManager().isPressed())
+			State.setState(handler.getGame().gameState);
 		
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.red);
-		g.fillRect(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 8, 8);
+		
+		g.setColor(Color.RED);
+		g.fillOval(handler.getMouseManager().getMouseX(), handler.getMouseManager().getMouseY(), 15, 15);
+		
 	}
 
 }

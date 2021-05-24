@@ -1,21 +1,19 @@
-package characters;
+package entities;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import championClash.Asset;
-import championClash.Champion;
 import championClash.Game;
 
-public class Warrior extends Champion{
+public class Archer extends Champion{
 	
 	private Game game;
-	
-	public Warrior(Game game, float x, float y) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
+
+	public Archer(Game game, float x, float y) {
+		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
-		speed = 4;
-		yMove = 0;
+		speed = 6;
 		bounds.x= 15;
 		bounds.y = 32;
 		bounds.width = 32;
@@ -45,8 +43,6 @@ public class Warrior extends Champion{
 			if(game.getKeyManager().jump==true) {
 				accelerate(0, -5);
 			}
-			
-			
 		/*
 		
 		if(isPlayer1) {
@@ -63,12 +59,8 @@ public class Warrior extends Champion{
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Asset.warriorStand, (int) x, (int) y, width, height, null);
+		g.drawImage(Asset.archerStand, (int) x, (int) y, width, height, null);
 		g.setColor(Color.red);
 		g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
-	
-
 }
-
-

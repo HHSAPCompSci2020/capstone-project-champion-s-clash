@@ -4,7 +4,8 @@ import processing.core.PApplet;
 
 public class Rectangle {
 
-	double x, y, height, width;
+	public double x, y;
+	public double width, height;
 	Line l1, l2, l3, l4;
 	public Rectangle(int x, int y, int height, int width) {
 		this.x=x;

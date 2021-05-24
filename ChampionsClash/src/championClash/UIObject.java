@@ -1,21 +1,24 @@
-package characters;
+package championClash;
 
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
-public abstract class Entity {
+public abstract class UIObject {
 	
 	protected float x, y;
 	protected int width, height;
-	protected Rectangle bounds;
+	protected boolean hovering = false;
 	
-	public Entity(float x, float y, int width, int height) {
+
+	public UIObject(float x, float y, int width, int height) {
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
-		bounds = new Rectangle(0,0,width, height);
 	}
+	
+	public abstract void tick();
+	
+	public abstract void draw(Graphics g);
 	
 	public float getX() {
 		return x;
@@ -49,7 +52,12 @@ public abstract class Entity {
 		this.height = height;
 	}
 
-	public abstract void tick();
-	public abstract void draw(Graphics g);
+	public boolean isHovering() {
+		return hovering;
+	}
+
+	public void setHovering(boolean hovering) {
+		this.hovering = hovering;
+	}
 
 }

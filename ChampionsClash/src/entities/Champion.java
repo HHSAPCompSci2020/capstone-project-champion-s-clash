@@ -1,8 +1,6 @@
-package championClash;
+package entities;
 
 import java.awt.Graphics;
-
-import characters.Entity;
 
 public abstract class Champion extends Entity{
 	

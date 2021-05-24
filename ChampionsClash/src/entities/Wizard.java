@@ -1,20 +1,19 @@
-package characters;
+package entities;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import championClash.Asset;
-import championClash.Champion;
 import championClash.Game;
 
-public class Archer extends Champion{
+public class Wizard extends Champion{
 	
 	private Game game;
 
-	public Archer(Game game, float x, float y) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT);
+	public Wizard(Game game, float x, float y) {
+		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
-		speed = 6;
+		speed = 5;
 		bounds.x= 15;
 		bounds.y = 32;
 		bounds.width = 32;
@@ -60,8 +59,9 @@ public class Archer extends Champion{
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(Asset.archerStand, (int) x, (int) y, width, height, null);
+		g.drawImage(Asset.wizardStand, (int) x, (int) y, width, height, null);
 		g.setColor(Color.red);
 		g.fillRect((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
+
 }
