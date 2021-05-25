@@ -3,6 +3,7 @@ package states;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import championClash.Asset;
 import championClash.Game;
 import championClash.Rectangle;
 import entities.Archer;
@@ -33,9 +34,9 @@ public class GameState extends State{
 	
 	public GameState(Game game) {
 		super(game);
-		warrior = new Warrior(game, 100, 487);
-		wizard = new Wizard(game, 400, 487);
-		archer = new Archer(game, 700, 487);
+		warrior = new Warrior(game, 100, 487, Asset.warriorStand);
+		wizard = new Wizard(game, 100, 487, Asset.wizardStand);
+		archer = new Archer(game, 700, 487, Asset.archerStand);
 		tree = new Tree(20, 0, 400, 600);
 		bush1 = new Bush(1000, 512, 110, 110);
 		bush2 = new Bush(700, 512, 110, 110);
@@ -74,7 +75,15 @@ public class GameState extends State{
 		hitsWorld(wizard);
 		hitsWorld(archer);
 		hitsWorld(warrior);
-		
+		wizard.takeDamageArcher(archer);
+		warrior.takeDamageArcher(archer);
+		archer.takeDamageWizard(wizard);
+		warrior.takeDamageWizard(wizard);
+		archer.takeDamageWarrior(warrior);
+		wizard.takeDamageWarrior(warrior);
+		wizard.ifDie();
+		archer.ifDie();
+		warrior.ifDie();
 	}
 	public boolean hitsWorld(Champion champ) {
 		if(champ.getY() + champ.getHeight() >= floor.y) {
