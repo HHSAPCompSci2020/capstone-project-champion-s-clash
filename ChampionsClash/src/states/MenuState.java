@@ -69,6 +69,8 @@ public class MenuState extends State{
 	 */
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(Color.CYAN);
+		g.fillRect(0, 0, 10000, 10000);
 		uiManager.draw(g);
 		menuText.draw(g);
 		player1Selection.draw(g);
