@@ -106,6 +106,16 @@ public abstract class Champion extends Entity{
 		hitBox = new Rectangle((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 	
+	public void takeDamage(Champion c) {
+		if (c instanceof Archer) {
+			takeDamageArcher((Archer)c);
+		} else if (c instanceof Wizard) {
+			takeDamageWizard((Wizard)c);
+		} else if (c instanceof Warrior) {
+			takeDamageWarrior((Warrior)c);
+		}
+	}
+	
 	public void takeDamageArcher(Archer archer) {
 		updateHitBox();
 		if(archer.arrow.intersects(hitBox)) {

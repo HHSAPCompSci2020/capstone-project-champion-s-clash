@@ -36,9 +36,6 @@ public class GameState extends State {
 	
 	public GameState(Game game) {
 		super(game);
-		//warrior = new Warrior(game, 100, 487, Asset.warriorStand);
-		//wizard = new Wizard(game, 100, 487, Asset.wizardStand);
-		//archer = new Archer(game, 700, 487, Asset.archerStand);
 		tree = new Tree(game, 20, 0, 400, 600);
 		bush1 = new Bush(game, 1000, 512, 110, 110);
 		bush2 = new Bush(game, 700, 512, 110, 110);
@@ -48,9 +45,6 @@ public class GameState extends State {
 		
 	@Override
 	public void tick() {
-		//warrior.tick();
-		//archer.tick();
-		//wizard.tick();
 		p1.tick();
 		p2.tick();
 		bush1.tick();
@@ -58,8 +52,6 @@ public class GameState extends State {
 		tree.tick();
 		sky.tick();
 		timeLeft = (int)((game.startTime+60000-System.currentTimeMillis())/1000);
-
-		
 	}
 
 	public void setP1(Champion p) {
@@ -91,21 +83,8 @@ public class GameState extends State {
 		p2.draw(g);
 		hitsWorld(p1);
 		hitsWorld(p2);
-		//warrior.draw(g);
-		//wizard.draw(g);
-		//archer.draw(g);
-		//hitsWorld(wizard);
-		//hitsWorld(archer);
-		//hitsWorld(warrior);
-		//wizard.takeDamageArcher(archer);
-		//warrior.takeDamageArcher(archer);
-		//archer.takeDamageWizard(wizard);
-		//warrior.takeDamageWizard(wizard);
-		//archer.takeDamageWarrior(warrior);
-		//wizard.takeDamageWarrior(warrior);
-		//wizard.ifDie();
-		//archer.ifDie();
-		//warrior.ifDie();
+		p1.takeDamage(p2);
+		p2.takeDamage(p1);
 		p1.ifDie();
 		p2.ifDie();
 	}
