@@ -54,7 +54,8 @@ public class Archer extends Champion{
 	
 	
 	private void getInput(){
-		xMove = 0;
+		if (isPlayerOne()) {
+			xMove = 0;
 		
 			if(game.getKeyManager().left==true) {
 				xMove-=speed;
@@ -80,19 +81,34 @@ public class Archer extends Champion{
 					direction = false;
 					
 			}
-
-		/*
-		
-		if(isPlayer1) {
+		} else {
+			xMove = 0;
+			
 			if(game.getKeyManager().left1==true) {
 				xMove-=speed;
+				changeImage(Asset.archerMove);
 			}
 			
 			if(game.getKeyManager().right1==true) {
 				xMove+=speed;
+				changeImage(Asset.archerMove);
+			}
+			
+			if(game.getKeyManager().jump1==true) {
+				accelerate(0, -2);
+				changeImage(Asset.archerStand);
+			}
+			if(game.getKeyManager().attack1==true) {
+				changeImage(Asset.archerAttack);
+				arrowX = (int) x + width;
+				arrowY = (int) y + height / 2 + 10;
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+					
 			}
 		}
-		*/
 	}
 	
 	public BufferedImage getImage() {

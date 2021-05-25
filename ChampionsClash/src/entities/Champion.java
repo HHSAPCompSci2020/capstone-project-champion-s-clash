@@ -19,6 +19,7 @@ public abstract class Champion extends Entity{
 	protected double gravity;
 	protected Rectangle hitBox;
 	protected BufferedImage champImage;
+	protected boolean isPlayerOne;
 	
 
 	public Champion(Game game, float x, float y, int width, int height, BufferedImage image) {
@@ -34,6 +35,22 @@ public abstract class Champion extends Entity{
 	
 	public Champion(Game game) {
 		super(game);
+	}
+	
+	public void setPlayerOne() {
+		isPlayerOne = true;
+	}
+	
+	public void setPlayerTwo() {
+		isPlayerOne = false;
+	}
+	
+	public boolean isPlayerOne() {
+		return isPlayerOne;
+	}
+	
+	public boolean isPlayerTwo() {
+		return !isPlayerOne();
 	}
 	
 	public void accelerate(double ax, double ay) {

@@ -51,7 +51,8 @@ public class Wizard extends Champion{
 	
 	
 	private void getInput(){
-		xMove = 0;
+		if (isPlayerOne()) {
+			xMove = 0;
 		
 			if(game.getKeyManager().left==true) {
 				changeImage(Asset.wizardMove);
@@ -65,7 +66,7 @@ public class Wizard extends Champion{
 			
 			if(game.getKeyManager().jump==true) {
 				changeImage(Asset.wizardStand);
-				accelerate(0, -5);
+				accelerate(0, -2);
 			}
 			if(game.getKeyManager().attack==true) {
 				changeImage(Asset.wizardAttack);
@@ -76,18 +77,33 @@ public class Wizard extends Champion{
 				else if(xMove < 0)
 					direction = false;
 			}
-		/*
-		
-		if(isPlayer1) {
+		} else {
+			xMove = 0;
+			
 			if(game.getKeyManager().left1==true) {
+				changeImage(Asset.wizardMove);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right1==true) {
+				changeImage(Asset.wizardMove);
 				xMove+=speed;
 			}
+			
+			if(game.getKeyManager().jump1==true) {
+				changeImage(Asset.wizardStand);
+				accelerate(0, -5);
+			}
+			if(game.getKeyManager().attack1==true) {
+				changeImage(Asset.wizardAttack);
+				fireBallX = (int) x + width;
+				fireBallY = (int) y + height / 2;
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			}			
 		}
-		*/
 	}
 	
 	public BufferedImage getImage() {

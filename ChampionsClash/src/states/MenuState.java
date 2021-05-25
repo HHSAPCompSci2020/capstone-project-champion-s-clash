@@ -33,6 +33,8 @@ public class MenuState extends State{
 			@Override
 			public void onClick() {
 				handler.getMouseManager().setUIManager(null);
+				player1Selection.getAssignedCharacter().setPlayerOne();
+				player2Selection.getAssignedCharacter().setPlayerTwo();
 				handler.getGame().gameState.setP1(player1Selection.getAssignedCharacter());
 				handler.getGame().gameState.setP2(player2Selection.getAssignedCharacter());
 				State.setState(handler.getGame().gameState);

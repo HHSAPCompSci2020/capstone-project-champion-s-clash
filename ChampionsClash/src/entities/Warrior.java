@@ -45,7 +45,8 @@ public class Warrior extends Champion{
 	
 	
 	private void getInput(){
-		xMove = 0;
+		if (isPlayerOne()) {
+			xMove = 0;
 		
 			if(game.getKeyManager().left==true) {
 				changeImage(Asset.warriorMove);
@@ -59,7 +60,7 @@ public class Warrior extends Champion{
 			
 			if(game.getKeyManager().jump==true) {
 				changeImage(Asset.warriorStand);
-				accelerate(0, -5);
+				accelerate(0, -2);
 			}
 			if(game.getKeyManager().attack==true && direction) {
 				changeImage(Asset.warriorAttackRight);
@@ -84,20 +85,48 @@ public class Warrior extends Champion{
 				swordY = -100;
 				sword = new Rectangle(swordX, swordY, 30, 30);
 			}
+		} else {
+			xMove = 0;
 			
-			
-		/*
-		
-		if(isPlayer1) {
 			if(game.getKeyManager().left1==true) {
+				changeImage(Asset.warriorMove);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right1==true) {
+				changeImage(Asset.warriorMove);
 				xMove+=speed;
 			}
+			
+			if(game.getKeyManager().jump1==true) {
+				changeImage(Asset.warriorStand);
+				accelerate(0, -5);
+			}
+			if(game.getKeyManager().attack1==true && direction) {
+				changeImage(Asset.warriorAttackRight);
+				swordX = (int) x + width - 30;
+				swordY = (int) y + height / 2 + 12;
+				sword = new Rectangle(swordX, swordY, 30, 30);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} else if(game.getKeyManager().attack1==true && !direction) {
+				changeImage(Asset.warriorAttackLeft);
+				swordX = (int) x;
+				swordY = (int) y + height / 2 + 12;
+				sword = new Rectangle(swordX, swordY, 30, 30);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} else {
+				swordX = -100;
+				swordY = -100;
+				sword = new Rectangle(swordX, swordY, 30, 30);
+			}
+			
 		}
-		*/
 	}
 	
 	public BufferedImage getImage() {

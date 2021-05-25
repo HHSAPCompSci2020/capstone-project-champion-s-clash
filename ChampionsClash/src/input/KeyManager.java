@@ -13,14 +13,17 @@ public class KeyManager implements KeyListener{
 	}
 	
 	public void tick(){
+		
 		jump = keys[KeyEvent.VK_W];
 		left = keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_D];
-		attack = keys[KeyEvent.VK_F];
-		//jump1 = keys[KeyEvent.VK_UP];
-		//left1 = keys[KeyEvent.VK_LEFT];
-		//right1 = keys[KeyEvent.VK_RIGHT];
-//		attack1 = keys[KeyEvent.VK_CONTROL];
+		attack = keys[KeyEvent.VK_SHIFT];
+		
+		
+		jump1 = keys[KeyEvent.VK_UP];
+		left1 = keys[KeyEvent.VK_LEFT];
+		right1 = keys[KeyEvent.VK_RIGHT];
+		attack1 = keys[KeyEvent.VK_SPACE];
 	}
 
 	@Override
