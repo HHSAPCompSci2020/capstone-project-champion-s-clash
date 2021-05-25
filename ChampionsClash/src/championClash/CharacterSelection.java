@@ -18,8 +18,9 @@ public class CharacterSelection extends UIObject {
 	private int currCharIndex;
 	
 
-	public CharacterSelection(float x, float y, int width, int height, int playerNumber, UIManager uiManager) {
+	public CharacterSelection(Game game, float x, float y, int width, int height, int playerNumber, UIManager uiManager) {
 		super(x, y, width, height);
+		this.game = game;
 		availableChars = new Champion[3];
 		availableChars[0] = new Wizard(game);
 		availableChars[1] = new Warrior(game);
@@ -36,6 +37,10 @@ public class CharacterSelection extends UIObject {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Champion getAssignedCharacter() {
+		return assignedCharacter;
+	}
+	
 	private void pickNextCharacter() {
 		currCharIndex = (currCharIndex+1)%3;
 		assignedCharacter = availableChars[currCharIndex];

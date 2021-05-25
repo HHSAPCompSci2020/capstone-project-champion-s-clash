@@ -31,7 +31,7 @@ public class Warrior extends Champion{
 	}
 	
 	public Warrior(Game game) {
-		super(game);
+		this(game, 0, 0, Asset.warriorStand);
 	}
 
 	@Override
