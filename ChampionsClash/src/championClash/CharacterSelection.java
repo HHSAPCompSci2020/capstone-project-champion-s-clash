@@ -40,9 +40,11 @@ public class CharacterSelection extends UIObject {
 		//g.drawImage(, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
 		if(playerNumber == 1) {
 			g.drawImage(Asset.p1Text, (int)x, (int)y+37, 250, 50, null);
+			g.drawImage(Asset.arrowButton, (int)x+200, (int)y-125, 100, 50, null);
 		}
 		else if (playerNumber == 2) {
 			g.drawImage(Asset.p2Text, (int)x, (int)y+37, 250, 50, null);
+			g.drawImage(Asset.arrowButton, (int)x+200, (int)y-125, 100, 50, null);
 		}
 		
 	}
