@@ -127,9 +127,10 @@ public abstract class Champion extends Entity{
 	public void takeDamageWarrior(Warrior warrior) {
 		updateHitBox();
 		if(warrior.sword.intersects(hitBox)) {
-			health-=100;
+			health-=50;
 			warrior.swordX = -100;
 			warrior.swordY = -100;
+				yMove-=50;
 		}
 	}
 	
