@@ -1,7 +1,9 @@
-package championClash;
+package ui;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+
+import input.ClickListener;
 
 public class UIImageButton extends UIObject{
 	

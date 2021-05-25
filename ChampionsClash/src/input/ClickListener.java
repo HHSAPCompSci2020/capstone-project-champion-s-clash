@@ -1,4 +1,4 @@
-package championClash;
+package input;
 
 public interface ClickListener {
 	

@@ -1,8 +1,10 @@
-package championClash;
+package ui;
 
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
+
+import championClash.Rectangle;
 
 public abstract class UIObject {
 	

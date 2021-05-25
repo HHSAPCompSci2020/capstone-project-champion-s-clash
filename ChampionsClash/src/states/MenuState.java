@@ -6,13 +6,13 @@ import java.awt.Graphics;
 import javax.swing.JOptionPane;
 
 import championClash.Asset;
-import championClash.CharacterSelection;
-import championClash.ClickListener;
 import championClash.Game;
 import championClash.Handler;
-import championClash.UIImageButton;
-import championClash.UIManager;
 import entities.MenuText;
+import input.ClickListener;
+import ui.CharacterSelection;
+import ui.UIImageButton;
+import ui.UIManager;
 
 public class MenuState extends State{
 	

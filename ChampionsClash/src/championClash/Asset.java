@@ -3,7 +3,6 @@ package championClash;
 import java.awt.image.BufferedImage;
 
 import championClash.ImageLoader;
-import entities.SpriteSheet;
 
 public class Asset {
 	private static final int width = 190, height = 175;
