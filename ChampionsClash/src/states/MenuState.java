@@ -38,6 +38,7 @@ public class MenuState extends State{
 				handler.getGame().gameState.setP1(player1Selection.getAssignedCharacter());
 				handler.getGame().gameState.setP2(player2Selection.getAssignedCharacter());
 				State.setState(handler.getGame().gameState);
+				handler.getGame().startTime=System.currentTimeMillis();
 			}}));
 		player1Selection = new CharacterSelection(handler.getGame(), 100, 550, 10, 10, 1, uiManager);
 		player2Selection = new CharacterSelection(handler.getGame(), 800, 550, 10, 10, 2, uiManager);

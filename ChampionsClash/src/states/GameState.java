@@ -1,6 +1,7 @@
 package states;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import championClash.Asset;
@@ -23,6 +24,7 @@ public class GameState extends State {
 	Bush bush1, bush2;
 	Tree tree;
 	Sky sky;
+	private int timeLeft;
 	
 	public Rectangle floor =  new Rectangle(0, 600, 500, 1170);
 	public Rectangle ceiling =  new Rectangle(0, 0, 500, 1170);
@@ -55,6 +57,7 @@ public class GameState extends State {
 		bush2.tick();
 		tree.tick();
 		sky.tick();
+		timeLeft = (int)((game.startTime+60000-System.currentTimeMillis())/1000);
 
 		
 	}
@@ -79,7 +82,8 @@ public class GameState extends State {
 		g.fillRect((int)platform1.x, (int)platform1.y, (int)platform1.width, (int)platform1.height);
 		g.fillRect((int)platform2.x, (int)platform2.y, (int)platform2.width, (int)platform2.height);
 		g.fillRect((int)platform3.x, (int)platform3.y, (int)platform3.width, (int)platform3.height);
-		
+		g.setFont(new Font("TimesRoman", Font.BOLD, 36));
+		g.drawString("Time left: " + timeLeft + " seconds", 800, 100);
 		bush1.draw(g);
 		bush2.draw(g);
 		tree.draw(g);

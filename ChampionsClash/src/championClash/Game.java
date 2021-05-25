@@ -30,6 +30,7 @@ public class Game implements Runnable {
 	//States
 	public GameState gameState;
 	public State menuState;
+	public long startTime;
 	
 	//Input
 	private KeyManager keyManager;
