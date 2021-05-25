@@ -8,6 +8,11 @@ import championClash.Asset;
 import championClash.Game;
 import championClash.Rectangle;
 
+/**
+ * Wizard subclass of Champion
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class Wizard extends Champion{
 	
 	private Game game;

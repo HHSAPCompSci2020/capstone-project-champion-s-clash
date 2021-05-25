@@ -2,7 +2,11 @@ package input;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+/**
+ * Creates two different sets of key commands to control characters.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class KeyManager implements KeyListener{
 
 	private boolean[] keys;
@@ -12,6 +16,9 @@ public class KeyManager implements KeyListener{
 		keys = new boolean[256];
 	}
 	
+	/**
+	 * Breaks commands into two sets, determines which keys trigger which action.
+	 */
 	public void tick(){
 		
 		jump1 = keys[KeyEvent.VK_W];

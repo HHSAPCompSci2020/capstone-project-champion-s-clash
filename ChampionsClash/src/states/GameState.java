@@ -15,7 +15,11 @@ import entities.Tree;
 import entities.Warrior;
 import entities.Wizard;
 
-
+/**
+ * Game state of class, battle between characters takes place in this class.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class GameState extends State {
 	Champion p1, p2;
 	Warrior warrior;
@@ -43,11 +47,18 @@ public class GameState extends State {
 
 	}
 	
+	/**
+	 * Sets game over state
+	 * @param c winner of match
+	 */
 	public void gameOver(Champion c) {
 		game.gameOverState.setWinner(c);
 		State.setState(game.gameOverState);
 	}
-		
+	
+	/**
+	 * Ticks each character and switches to gameOver is timer runs out or one player perishes.
+	 */
 	@Override
 	public void tick() {
 		p1.tick();
@@ -85,6 +96,9 @@ public class GameState extends State {
 		p1.setY(487);
 	}
 	
+	/**
+	 * Draws everything needed for game state.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		sky.draw(g);
@@ -108,6 +122,11 @@ public class GameState extends State {
 		p2.ifDie();
 	}
 	
+	/**
+	 * Collision detection. Makes sure champion doesn't leave the arena or pass through solid objects.
+	 * @param champ champion that is being tested for collision.
+	 * @return whether or not the boolean collides with the world.
+	 */
 	public boolean hitsWorld(Champion champ) {
 		if(champ.getY() + champ.getHeight() >= floor.y) {
 			champ.setY((int) (floor.y) - 105);

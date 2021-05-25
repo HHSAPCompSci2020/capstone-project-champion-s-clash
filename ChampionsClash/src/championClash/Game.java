@@ -13,6 +13,11 @@ import states.GameState;
 import states.MenuState;
 import states.State;
 
+/**
+ * Main Game class. Stores champions, width, height, and display.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class Game implements Runnable {
 
 	private Display display;
@@ -50,6 +55,10 @@ public class Game implements Runnable {
 		mouseManager = new MouseManager();
 	}
 	
+	/**
+	 * Class to initialize GameStates and add frames and canvases for input features(MouseListener, KeyListener, MouseMotionListener)
+	 * No parameters. 
+	 */
 	private void init(){
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager);
@@ -67,6 +76,9 @@ public class Game implements Runnable {
 		State.setState(menuState);
 	}
 	
+	/**
+	 * Ticks whichever state the game is in, as well as the keyManager class.
+	 */
 	private void tick(){
 		keyManager.tick();
 		
@@ -74,6 +86,9 @@ public class Game implements Runnable {
 			State.getState().tick();
 	}
 	
+	/**
+	 * Draws different GameStates on Canvas.
+	 */
 	private void draw(){
 		bs = display.getCanvas().getBufferStrategy();
 		if(bs == null){
@@ -93,6 +108,9 @@ public class Game implements Runnable {
 		g.dispose();
 	}
 	
+	/**
+	 * Calls initialize method, sets FPS speed, and starts game.
+	 */
 	public void run(){
 		
 		init();
@@ -103,7 +121,6 @@ public class Game implements Runnable {
 		long now;
 		long lastTime = System.nanoTime();
 		long timer = 0;
-		int ticks = 0;
 		
 		while(running){
 			now = System.nanoTime();
@@ -114,13 +131,10 @@ public class Game implements Runnable {
 			if(delta >= 1){
 				tick();
 				draw();
-				ticks++;
 				delta--;
 			}
 			
 			if(timer >= 1000000000){
-				System.out.println("Ticks and Frames: " + ticks);
-				ticks = 0;
 				timer = 0;
 			}
 		}
@@ -129,38 +143,67 @@ public class Game implements Runnable {
 		
 	}
 	
+	/**
+	 * Sets the Champion of player 1 to the Champion passed in.
+	 * @param player1Champ Champion that p1 is set to.
+	 */
 	public void setPlayer1Champ(Champion player1Champ) {
 		p1 = player1Champ;
 	}
 	
+	/**
+	 * Sets the Champion of player 2 to the Champion passed in.
+	 * @param player2Champ Champion that p2 is set to.
+	 */
 	public void setPlayer2Champ(Champion player2Champ) {
 		p2 = player2Champ;
 	}
 	
+	/**
+	 * Returns the champion of player 1.
+	 */
 	public Champion getPlayer1Champ() {
 		return p1;
 	}
 	
+	/**
+	 * Returns the champion of player 2.
+	 */
 	public Champion getPlayer2Champ() {
 		return p2;
 	}
 	
+	/**
+	 * Returns the KeyManager.
+	 */
 	public KeyManager getKeyManager(){
 		return keyManager;
 	}
 	
+	/**
+	 * Returns the MouseManager.
+	 */
 	public MouseManager getMouseManager(){
 		return mouseManager;
 	}
 	
+	/**
+	 * Returns the width of the current game.
+	 */
 	public int getWidth(){
 		return width;
 	}
 	
+	/**
+	 * Returns the height of the current game.
+	 */
 	public int getHeight(){
 		return height;
 	}
 	
+	/**
+	 * Starts game by setting running boolean to true and starting new Thread.
+	 */
 	public synchronized void start(){
 		if(running)
 			return;
@@ -169,6 +212,9 @@ public class Game implements Runnable {
 		thread.start();
 	}
 	
+	/**
+	 * Stops game with try-and-catch statement.
+	 */
 	public synchronized void stop(){
 		if(!running)
 			return;
@@ -180,6 +226,11 @@ public class Game implements Runnable {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param champ Champion that is tested for game collision.
+	 * @return false 
+	 */
 	public boolean hitsWorld(Champion champ) {
 		
 		

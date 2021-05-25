@@ -2,6 +2,11 @@ package championClash;
 
 import processing.core.PApplet;
 
+/**
+ * Line class from Shapes lab, used for collision detection between characters.
+ * @author Ethan Bar, Abhishek Garud - 5/22/21
+ *
+ */
 public class Line {
 
 	double x1, y1, x2, y2;

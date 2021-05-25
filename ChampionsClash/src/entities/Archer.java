@@ -11,6 +11,11 @@ import championClash.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Archer subclass of Champion.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class Archer extends Champion{
 	
 	private Game game;

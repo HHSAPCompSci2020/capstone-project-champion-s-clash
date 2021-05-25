@@ -5,7 +5,11 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 import ui.UIManager;
-
+/**
+ * Determines when buttons are clicked, and gets various stats.
+ * @author Ethan Bar, Abhishek Garud - 5/23/21
+ *
+ */
 public class MouseManager implements MouseListener, MouseMotionListener{
 	
 	private boolean pressed;
@@ -36,7 +40,10 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	/**
+	 * Gets locations of mouse as it moves.
+	 */
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		mouseX = e.getX();
@@ -53,6 +60,9 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 		
 	}
 
+	/**
+	 * Sets pressed boolean to true if mouse is clicked.
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getButton()==MouseEvent.BUTTON1) {
@@ -61,6 +71,9 @@ public class MouseManager implements MouseListener, MouseMotionListener{
 		
 	}
 
+	/**
+	 * Sets pressed boolean to false if mouse is released.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(e.getButton()==MouseEvent.BUTTON1) {

@@ -8,6 +8,11 @@ import championClash.Asset;
 import championClash.Game;
 import entities.Champion;
 
+/**
+ * Final state of game, showcasing the winner of the match.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class GameOverState extends State{
 	
 	private Champion winner;
@@ -27,6 +32,9 @@ public class GameOverState extends State{
 		
 	}
 
+	/**
+	 * Draws final GAME OVER screen.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.BLACK);

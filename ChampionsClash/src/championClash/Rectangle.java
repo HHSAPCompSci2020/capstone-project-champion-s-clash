@@ -2,6 +2,11 @@ package championClash;
 
 import processing.core.PApplet;
 
+/**
+ * Rectangle class from Shapes lab, used for collision detection.
+ * @author Ethan Bar, Abhishek Garud - 5/22/21
+ *
+ */
 public class Rectangle {
 
 	public double x, y;

@@ -5,6 +5,11 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/**
+ * Class to set up JFrame and Canvas display on screen.
+ * @author Abhishek Garud - 5/25/21
+ *
+ */
 public class Display {
 
 	private JFrame frame;
@@ -21,6 +26,9 @@ public class Display {
 		createDisplay();
 	}
 	
+	/**
+	 * Creates non-adjustable JFrame with canvas.
+	 */
 	private void createDisplay(){
 		frame = new JFrame(title);
 		frame.setSize(width, height);
@@ -38,11 +46,19 @@ public class Display {
 		frame.add(canvas);
 		frame.pack();
 	}
-
+	
+	/**
+	 * Getter method for Canvas.
+	 * @returns Canvas used in game.
+	 */
 	public Canvas getCanvas(){
 		return canvas;
 	}
 	
+	/**
+	 * Getter method for JFrame.
+	 * @return JFrame used in game.
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}

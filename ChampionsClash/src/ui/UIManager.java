@@ -6,6 +6,11 @@ import java.util.ArrayList;
 
 import championClash.Handler;
 
+/**
+ * Manager for all UI Objects
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class UIManager {
 
 		private Handler handler;

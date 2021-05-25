@@ -6,6 +6,11 @@ import championClash.Game;
 import championClash.Rectangle;
 import java.awt.image.BufferedImage;
 
+/**
+ * Class for a Champion, a playable character.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public abstract class Champion extends Entity{
 	
 	public static final int DEFAULT_HEALTH = 100;
@@ -37,45 +42,81 @@ public abstract class Champion extends Entity{
 		super(game);
 	}
 	
+	/**
+	 * Sets isPlayerOne boolean to true.
+	 */
 	public void setPlayerOne() {
 		isPlayerOne = true;
 	}
 	
+	/**
+	 * Sets isPlayerOne boolean to false.
+	 */
 	public void setPlayerTwo() {
 		isPlayerOne = false;
 	}
 	
+	/**
+	 * Gets isPlayerOne boolean.
+	 */
 	public boolean isPlayerOne() {
 		return isPlayerOne;
 	}
 	
+	/**
+	 * Gets false isPlayerOne boolean.
+	 */
 	public boolean isPlayerTwo() {
 		return !isPlayerOne();
 	}
 	
+	/**
+	 * Accelerates Champion based on horizontal and vertical components.
+	 * @param ax horizontal component of acceleration
+	 * @param ay vertical component of acceleration
+	 */
 	public void accelerate(double ax, double ay) {
 		xMove += ax;
 		yMove += ay;
 		
 	}
 	
+	/**
+	 * Moves the Champion across the screen based on acceleration.
+	 */
 	public void move(){
 		x += xMove;
 		y += yMove;
 	}
 
+	/**
+	 * Getter method for horizontal acceleration
+	 * @return horizontal acceleration
+	 */
 	public float getxMove() {
 		return xMove;
 	}
 
+	/**
+	 * Sets horizontal acceleration to float passed in
+	 * @param xMove horizontal acceleration to be set
+	 */
 	public void setxMove(float xMove) {
 		this.xMove = xMove;
 	}
 
+	/**
+	 * Getter method for vertical acceleration
+	 * @return vertical acceleration
+	 */
 	public float getyMove() {
 		return yMove;
 	}
 
+	/**
+	 * Sets vertical acceleration to float passed in
+	 * @param yMove vertical acceleration to be set
+	 */
 	public void setyMove(float yMove) {
 		this.yMove = yMove;
 	}
@@ -98,14 +139,25 @@ public abstract class Champion extends Entity{
 	
 	public abstract BufferedImage getImage();
 
+	/**
+	 * Changes champImage to image passed in.
+	 * @param image image to be set as champImage
+	 */
 	public void changeImage(BufferedImage image) {
 		champImage = image;
 	}
 	
+	/**
+	 * Updates hitBox of Champion.
+	 */
 	public void updateHitBox() {
 		hitBox = new Rectangle((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 	}
 	
+	/**
+	 * Takes damage from all characters on screen who launch attacks.
+	 * @param c Attacking champion
+	 */
 	public void takeDamage(Champion c) {
 		if (c instanceof Archer) {
 			takeDamageArcher((Archer)c);
@@ -115,7 +167,10 @@ public abstract class Champion extends Entity{
 			takeDamageWarrior((Warrior)c);
 		}
 	}
-	
+	/**
+	 * If champion is hit by arrow, health is decremented.
+	 * @param archer archer attacking
+	 */
 	public void takeDamageArcher(Archer archer) {
 		updateHitBox();
 		if(archer.arrow.intersects(hitBox)) {
@@ -124,7 +179,10 @@ public abstract class Champion extends Entity{
 			archer.arrowY = -100;
 		}
 	}
-	
+	/**
+	 * If champion is hit by fireBall, health is decremented.
+	 * @param wizard wizard attacking
+	 */
 	public void takeDamageWizard(Wizard wizard) {
 		updateHitBox();
 		if(wizard.fireBall.intersects(hitBox)) {
@@ -133,7 +191,10 @@ public abstract class Champion extends Entity{
 			wizard.fireBallY = -100;
 		}
 	}
-	
+	/**
+	 * If champion is hit by sword, health is decremented.
+	 * @param warrior warrior attacking
+	 */
 	public void takeDamageWarrior(Warrior warrior) {
 		updateHitBox();
 		if(warrior.sword.intersects(hitBox)) {
@@ -144,11 +205,18 @@ public abstract class Champion extends Entity{
 		}
 	}
 	
+	/**
+	 * Removes Champion from game.
+	 */
 	public void remove() {
 		x = -100;
 		y = -100;
 	}
 	
+	/**
+	 * Determines if Champion is dead or not.
+	 * @return boolean determining if champion is dead.
+	 */
 	public boolean isDead() {
 		if(health <= 0) {
 			return true;
@@ -156,7 +224,6 @@ public abstract class Champion extends Entity{
 			return false;
 		}
 	}
-	
 	public void ifDie() {
 		if(health <= 0)
 			remove();

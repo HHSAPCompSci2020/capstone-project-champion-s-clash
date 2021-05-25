@@ -5,6 +5,11 @@ import java.awt.Graphics;
 import championClash.Asset;
 import championClash.Game;
 
+/**
+ * Bush entity on GameState.
+ * @author Ethan Bar, Abhishek Garud - 5/23/21
+ *
+ */
 public class Bush extends Entity{
 
 	public Bush(Game game, float x, float y, int width, int height) {

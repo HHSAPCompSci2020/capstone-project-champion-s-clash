@@ -4,6 +4,12 @@ import java.awt.image.BufferedImage;
 
 import championClash.ImageLoader;
 
+
+/**
+ * Asset class, loads all images used in the game. 
+ * @author Abhishek Garud, Ethan Bar - 5/24/21
+ *
+ */
 public class Asset {
 	private static final int width = 190, height = 175;
 	public static BufferedImage warriorStand, warriorMoveRight, warriorMoveLeft, warriorAttackRight, warriorAttackLeft;
@@ -14,6 +20,9 @@ public class Asset {
 	public static BufferedImage menuText, arrowButton, p1Text, p2Text;
 	public static BufferedImage gameOver;
 	
+	/**
+	 * Initializes static BufferedImages using loadImage() from ImageLoader.
+	 */
 	public static void initialize() {
 		warriorStand = ImageLoader.loadImage("/images/warriorStand.png");
 		warriorMoveLeft = ImageLoader.loadImage("/images/warriorMoveLeft.png");

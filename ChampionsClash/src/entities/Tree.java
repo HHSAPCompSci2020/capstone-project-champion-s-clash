@@ -4,7 +4,11 @@ import java.awt.Graphics;
 
 import championClash.Asset;
 import championClash.Game;
-
+/**
+ * Tree entity on GameState
+ * @author Ethan Bar, Abhishek Garud - 5/23/21
+ *
+ */
 public class Tree extends Entity{
 
 	public Tree(Game game, float x, float y, int width, int height) {

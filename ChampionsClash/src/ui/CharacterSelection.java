@@ -11,6 +11,11 @@ import entities.Wizard;
 import input.ClickListener;
 import states.State;
 
+/**
+ * Character selection screen on game.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class CharacterSelection extends UIObject {
 	
 	private int playerNumber; 
@@ -40,10 +45,17 @@ public class CharacterSelection extends UIObject {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Chooses the assigned character that the usee chose.
+	 * @return the assigned character
+	 */
 	public Champion getAssignedCharacter() {
 		return assignedCharacter;
 	}
 	
+	/**
+	 * Chooses next character to be displayed on character selection screen.
+	 */
 	private void pickNextCharacter() {
 		currCharIndex = (currCharIndex+1)%3;
 		assignedCharacter = availableChars[currCharIndex];
@@ -55,6 +67,9 @@ public class CharacterSelection extends UIObject {
 		
 	}
 
+	/**
+	 * Draws interactive character selection menu.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		//g.drawImage(, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);

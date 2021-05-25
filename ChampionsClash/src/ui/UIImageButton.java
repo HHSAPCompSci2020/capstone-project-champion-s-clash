@@ -5,6 +5,11 @@ import java.awt.image.BufferedImage;
 
 import input.ClickListener;
 
+/**
+ * Basic button class for menu
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class UIImageButton extends UIObject{
 	
 	private BufferedImage button1, button2;
@@ -24,6 +29,9 @@ public class UIImageButton extends UIObject{
 		
 	}
 
+	/**
+	 * Determines what start button looks like depending on if mouse is hovering on it.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub

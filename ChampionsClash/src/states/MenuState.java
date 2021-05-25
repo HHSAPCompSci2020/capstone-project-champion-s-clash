@@ -14,6 +14,11 @@ import ui.CharacterSelection;
 import ui.UIImageButton;
 import ui.UIManager;
 
+/**
+ * Menu state of game, allows character selection.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public class MenuState extends State{
 	
 	private UIManager uiManager;
@@ -48,7 +53,9 @@ public class MenuState extends State{
 		super(game);
 		// TODO Auto-generated constructor stub
 	}
-
+	/**
+	 * ticks each object on main menu
+	 */
 	@Override
 	public void tick() {
 		uiManager.tick();
@@ -57,7 +64,9 @@ public class MenuState extends State{
 		player2Selection.tick();
 		
 	}
-
+	/**
+	 * Draws character selection screen, menu text, and start button.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		uiManager.draw(g);

@@ -4,7 +4,11 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 import championClash.Game;
-
+/**
+ * Any character or tree, bush, or sky on the screen in any state.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public abstract class Entity {
 	
 	protected float x, y;

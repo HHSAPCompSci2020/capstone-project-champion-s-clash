@@ -6,6 +6,11 @@ import java.awt.event.MouseEvent;
 
 import championClash.Rectangle;
 
+/**
+ * Checks interactivity with UI Objects and mouse.
+ * @author Ethan Bar, Abhishek Garud - 5/24/21
+ *
+ */
 public abstract class UIObject {
 	
 	protected float x, y;
