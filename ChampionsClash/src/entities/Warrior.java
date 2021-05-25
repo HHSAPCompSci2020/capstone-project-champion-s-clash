@@ -11,7 +11,7 @@ public class Warrior extends Champion{
 	private Game game;
 	
 	public Warrior(Game game, float x, float y) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
+		super(game, x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
 		speed = 4;
 		yMove = 0;
@@ -19,6 +19,10 @@ public class Warrior extends Champion{
 		bounds.y = 32;
 		bounds.width = 32;
 		bounds.height = 68;
+	}
+	
+	public Warrior(Game game) {
+		super(game);
 	}
 
 	@Override

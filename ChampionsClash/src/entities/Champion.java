@@ -2,6 +2,7 @@ package entities;
 
 import java.awt.Graphics;
 
+import championClash.Game;
 import championClash.Rectangle;
 
 public abstract class Champion extends Entity{
@@ -17,8 +18,8 @@ public abstract class Champion extends Entity{
 	protected double gravity;
 	
 
-	public Champion(float x, float y, int width, int height) {
-		super(x, y, width, height);
+	public Champion(Game game, float x, float y, int width, int height) {
+		super(game, x, y, width, height);
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
@@ -26,10 +27,19 @@ public abstract class Champion extends Entity{
 		gravity = 0.95;
 	}
 	
+	public Champion(Game game) {
+		super(game);
+	}
+	
 	public void accelerate(double ax, double ay) {
 		xMove += ax;
 		yMove += ay;
 		
+	}
+	
+	public void setLoc(float x, float y) {
+		setX(x);
+		setY(y);
 	}
 	
 	public void move(){

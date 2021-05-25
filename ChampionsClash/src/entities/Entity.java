@@ -3,18 +3,24 @@ package entities;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
+import championClash.Game;
+
 public abstract class Entity {
 	
 	protected float x, y;
 	protected int width, height;
 	protected Rectangle bounds;
 	
-	public Entity(float x, float y, int width, int height) {
+	public Entity(Game game, float x, float y, int width, int height) {
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
 		bounds = new Rectangle(0,0,width, height);
+	}
+	
+	public Entity(Game game) {
+		
 	}
 	
 	public float getX() {

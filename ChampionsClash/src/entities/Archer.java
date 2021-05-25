@@ -11,23 +11,22 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-
-
-
-
-
 public class Archer extends Champion{
 	
 	private Game game;
 
 	public Archer(Game game, float x, float y) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT);
+		super(game, x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT);
 		this.game = game;
 		speed = 6;
 //		bounds.x= 15;
 //		bounds.y = 32;
 //		bounds.width = 32;
 //		bounds.height = 68;
+	}
+	
+	public Archer(Game game) {
+		super(game);
 	}
 
 	@Override

@@ -3,14 +3,18 @@ package entities;
 import java.awt.Graphics;
 
 import championClash.Asset;
+import championClash.Game;
 
 public class Bush extends Entity{
 
-	public Bush(float x, float y, int width, int height) {
-		super(x, y, width, height);
+	public Bush(Game game, float x, float y, int width, int height) {
+		super(game, x, y, width, height);
 		// TODO Auto-generated constructor stub
 	}
 
+	public Bush(Game game) {
+		super(game);
+	}
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
