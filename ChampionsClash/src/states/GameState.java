@@ -37,10 +37,10 @@ public class GameState extends State{
 		warrior = new Warrior(game, 100, 487, Asset.warriorStand);
 		wizard = new Wizard(game, 100, 487, Asset.wizardStand);
 		archer = new Archer(game, 700, 487, Asset.archerStand);
-		tree = new Tree(20, 0, 400, 600);
-		bush1 = new Bush(1000, 512, 110, 110);
-		bush2 = new Bush(700, 512, 110, 110);
-		sky = new Sky(0,0,1170, 720);
+		tree = new Tree(game, 20, 0, 400, 600);
+		bush1 = new Bush(game, 1000, 512, 110, 110);
+		bush2 = new Bush(game, 700, 512, 110, 110);
+		sky = new Sky(game, 0,0,1170, 720);
 
 	}
 		

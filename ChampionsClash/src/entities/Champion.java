@@ -1,6 +1,8 @@
 package entities;
 
 import java.awt.Graphics;
+
+import championClash.Game;
 import championClash.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -19,8 +21,8 @@ public abstract class Champion extends Entity{
 	protected BufferedImage champImage;
 	
 
-	public Champion(float x, float y, int width, int height, BufferedImage image) {
-		super(x, y, width, height);
+	public Champion(Game game, float x, float y, int width, int height, BufferedImage image) {
+		super(game, x, y, width, height);
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		xMove = 0;
@@ -28,6 +30,10 @@ public abstract class Champion extends Entity{
 		gravity = 0.95;
 		hitBox = new Rectangle((int)x+bounds.x, (int)y+bounds.y, bounds.width, bounds.height);
 		champImage = image;
+	}
+	
+	public Champion(Game game) {
+		super(game);
 	}
 	
 	public void accelerate(double ax, double ay) {

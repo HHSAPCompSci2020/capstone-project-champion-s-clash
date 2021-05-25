@@ -17,7 +17,7 @@ public class Warrior extends Champion{
 	boolean direction;
 	
 	public Warrior(Game game, float x, float y, BufferedImage image) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT, image);
+		super(game, x, y, Champion.DEFAULT_CHAMPION_WIDTH, Champion.DEFAULT_CHAMPION_HEIGHT, image);
 		this.game = game;
 		speed = 4;
 		swordX = -100;
@@ -28,6 +28,10 @@ public class Warrior extends Champion{
 		bounds.width = 32;
 		bounds.height = 68;
 		direction = true;
+	}
+	
+	public Warrior(Game game) {
+		super(game);
 	}
 
 	@Override

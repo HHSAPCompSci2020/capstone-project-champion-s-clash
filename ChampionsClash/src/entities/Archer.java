@@ -11,12 +11,6 @@ import championClash.Rectangle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-
-
-
-
-
 public class Archer extends Champion{
 	
 	private Game game;
@@ -26,7 +20,7 @@ public class Archer extends Champion{
 	boolean direction;
 
 	public Archer(Game game, float x, float y, BufferedImage image) {
-		super(x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT, image);
+		super(game, x, y, Champion.DEFAULT_CHAMPION_WIDTH-20, Champion.DEFAULT_CHAMPION_HEIGHT, image);
 		this.game = game;
 		speed = 6;
 		arrowX = -100;
@@ -37,6 +31,10 @@ public class Archer extends Champion{
 		bounds.width = 32;
 		bounds.height = 68;
 		direction = true;
+	}
+	
+	public Archer(Game game) {
+		super(game);
 	}
 
 	@Override
