@@ -49,12 +49,12 @@ public class Warrior extends Champion{
 			xMove = 0;
 		
 			if(game.getKeyManager().left==true) {
-				changeImage(Asset.warriorMove);
+				changeImage(Asset.warriorMoveLeft);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right==true) {
-				changeImage(Asset.warriorMove);
+				changeImage(Asset.warriorMoveRight);
 				xMove+=speed;
 			}
 			
@@ -89,12 +89,12 @@ public class Warrior extends Champion{
 			xMove = 0;
 			
 			if(game.getKeyManager().left1==true) {
-				changeImage(Asset.warriorMove);
+				changeImage(Asset.warriorMoveLeft);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right1==true) {
-				changeImage(Asset.warriorMove);
+				changeImage(Asset.warriorMoveRight);
 				xMove+=speed;
 			}
 			

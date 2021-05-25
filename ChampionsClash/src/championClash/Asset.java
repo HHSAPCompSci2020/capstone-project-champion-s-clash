@@ -7,23 +7,26 @@ import entities.SpriteSheet;
 
 public class Asset {
 	private static final int width = 190, height = 175;
-	public static BufferedImage warriorStand, warriorMove, warriorAttackRight, warriorAttackLeft;
-	public static BufferedImage wizardStand, wizardMove, wizardAttack;
-	public static BufferedImage archerStand, archerMove, archerAttack;
+	public static BufferedImage warriorStand, warriorMoveRight, warriorMoveLeft, warriorAttackRight, warriorAttackLeft;
+	public static BufferedImage wizardStand, wizardMoveRight, wizardMoveLeft, wizardAttack;
+	public static BufferedImage archerStand, archerMoveRight, archerMoveLeft, archerAttack;
 	public static BufferedImage startButton1, startButton2;
 	public static BufferedImage bush, tree, sky;
 	public static BufferedImage menuText, arrowButton, p1Text, p2Text;
 	
 	public static void initialize() {
 		warriorStand = ImageLoader.loadImage("/images/warriorStand.png");
-		warriorMove = ImageLoader.loadImage("/images/warriorMove.png");
+		warriorMoveLeft = ImageLoader.loadImage("/images/warriorMoveLeft.png");
+		warriorMoveRight = ImageLoader.loadImage("/images/warriorMoveRight.png");
 		warriorAttackRight = ImageLoader.loadImage("/images/warriorAttackRight.png");
 		warriorAttackLeft = ImageLoader.loadImage("/images/warriorAttackLeft.png");
 		wizardStand = ImageLoader.loadImage("/images/wizardStand.png");
-		wizardMove = ImageLoader.loadImage("/images/wizardMove.png");
+		wizardMoveRight = ImageLoader.loadImage("/images/wizardMoveRight.png");
+		wizardMoveLeft = ImageLoader.loadImage("/images/wizardMoveLeft.png");
 		wizardAttack = ImageLoader.loadImage("/images/wizardAttack.png");
 		archerStand = ImageLoader.loadImage("/images/archerStand.png");
-		archerMove = ImageLoader.loadImage("/images/archerMove.png");
+		archerMoveRight = ImageLoader.loadImage("/images/archerMoveRight.png");
+		archerMoveLeft = ImageLoader.loadImage("/images/archerMoveLeft.png");
 		archerAttack = ImageLoader.loadImage("/images/archerAttack.png");
 		startButton1 = ImageLoader.loadImage("/images/startButton1.png");
 		startButton2 = ImageLoader.loadImage("/images/startButton2.png");

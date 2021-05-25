@@ -59,12 +59,12 @@ public class Archer extends Champion{
 		
 			if(game.getKeyManager().left==true) {
 				xMove-=speed;
-				changeImage(Asset.archerMove);
+				changeImage(Asset.archerMoveLeft);
 			}
 			
 			if(game.getKeyManager().right==true) {
 				xMove+=speed;
-				changeImage(Asset.archerMove);
+				changeImage(Asset.archerMoveRight);
 			}
 			
 			if(game.getKeyManager().jump==true) {
@@ -86,12 +86,12 @@ public class Archer extends Champion{
 			
 			if(game.getKeyManager().left1==true) {
 				xMove-=speed;
-				changeImage(Asset.archerMove);
+				changeImage(Asset.archerMoveLeft);
 			}
 			
 			if(game.getKeyManager().right1==true) {
 				xMove+=speed;
-				changeImage(Asset.archerMove);
+				changeImage(Asset.archerMoveRight);
 			}
 			
 			if(game.getKeyManager().jump1==true) {

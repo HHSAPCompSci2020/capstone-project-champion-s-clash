@@ -55,12 +55,12 @@ public class Wizard extends Champion{
 			xMove = 0;
 		
 			if(game.getKeyManager().left==true) {
-				changeImage(Asset.wizardMove);
+				changeImage(Asset.wizardMoveLeft);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right==true) {
-				changeImage(Asset.wizardMove);
+				changeImage(Asset.wizardMoveRight);
 				xMove+=speed;
 			}
 			
@@ -81,12 +81,12 @@ public class Wizard extends Champion{
 			xMove = 0;
 			
 			if(game.getKeyManager().left1==true) {
-				changeImage(Asset.wizardMove);
+				changeImage(Asset.wizardMoveLeft);
 				xMove-=speed;
 			}
 			
 			if(game.getKeyManager().right1==true) {
-				changeImage(Asset.wizardMove);
+				changeImage(Asset.wizardMoveRight);
 				xMove+=speed;
 			}
 			
