@@ -31,7 +31,7 @@ public class Wizard extends Champion{
 	}
 	
 	public Wizard(Game game) {
-		super(game);
+		this(game, 0, 0, Asset.wizardStand);
 	}
 
 	@Override

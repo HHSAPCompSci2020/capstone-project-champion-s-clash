@@ -15,8 +15,8 @@ import entities.Warrior;
 import entities.Wizard;
 
 
-public class GameState extends State{
-
+public class GameState extends State {
+	Champion p1, p2;
 	Warrior warrior;
 	Wizard wizard;
 	Archer archer;
@@ -34,9 +34,9 @@ public class GameState extends State{
 	
 	public GameState(Game game) {
 		super(game);
-		warrior = new Warrior(game, 100, 487, Asset.warriorStand);
-		wizard = new Wizard(game, 100, 487, Asset.wizardStand);
-		archer = new Archer(game, 700, 487, Asset.archerStand);
+		//warrior = new Warrior(game, 100, 487, Asset.warriorStand);
+		//wizard = new Wizard(game, 100, 487, Asset.wizardStand);
+		//archer = new Archer(game, 700, 487, Asset.archerStand);
 		tree = new Tree(game, 20, 0, 400, 600);
 		bush1 = new Bush(game, 1000, 512, 110, 110);
 		bush2 = new Bush(game, 700, 512, 110, 110);
@@ -46,9 +46,11 @@ public class GameState extends State{
 		
 	@Override
 	public void tick() {
-		warrior.tick();
-		archer.tick();
-		wizard.tick();
+		//warrior.tick();
+		//archer.tick();
+		//wizard.tick();
+		p1.tick();
+		p2.tick();
 		bush1.tick();
 		bush2.tick();
 		tree.tick();
@@ -57,6 +59,18 @@ public class GameState extends State{
 		
 	}
 
+	public void setP1(Champion p) {
+		p1 = p;
+		p1.setX(100);
+		p1.setY(487);
+	}
+	
+	public void setP2(Champion p) {
+		p2 = p;
+		p1.setX(700);
+		p1.setY(487);
+	}
+	
 	@Override
 	public void draw(Graphics g) {
 		sky.draw(g);
@@ -69,22 +83,29 @@ public class GameState extends State{
 		bush1.draw(g);
 		bush2.draw(g);
 		tree.draw(g);
-		warrior.draw(g);
-		wizard.draw(g);
-		archer.draw(g);
-		hitsWorld(wizard);
-		hitsWorld(archer);
-		hitsWorld(warrior);
-		wizard.takeDamageArcher(archer);
-		warrior.takeDamageArcher(archer);
-		archer.takeDamageWizard(wizard);
-		warrior.takeDamageWizard(wizard);
-		archer.takeDamageWarrior(warrior);
-		wizard.takeDamageWarrior(warrior);
-		wizard.ifDie();
-		archer.ifDie();
-		warrior.ifDie();
+		p1.draw(g);
+		p2.draw(g);
+		hitsWorld(p1);
+		hitsWorld(p2);
+		//warrior.draw(g);
+		//wizard.draw(g);
+		//archer.draw(g);
+		//hitsWorld(wizard);
+		//hitsWorld(archer);
+		//hitsWorld(warrior);
+		//wizard.takeDamageArcher(archer);
+		//warrior.takeDamageArcher(archer);
+		//archer.takeDamageWizard(wizard);
+		//warrior.takeDamageWizard(wizard);
+		//archer.takeDamageWarrior(warrior);
+		//wizard.takeDamageWarrior(warrior);
+		//wizard.ifDie();
+		//archer.ifDie();
+		//warrior.ifDie();
+		p1.ifDie();
+		p2.ifDie();
 	}
+	
 	public boolean hitsWorld(Champion champ) {
 		if(champ.getY() + champ.getHeight() >= floor.y) {
 			champ.setY((int) (floor.y) - 105);
