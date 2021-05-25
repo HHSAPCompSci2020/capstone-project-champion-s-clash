@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import entities.Champion;
 import input.KeyManager;
 import input.MouseManager;
+import states.GameOverState;
 import states.GameState;
 import states.MenuState;
 import states.State;
@@ -29,7 +30,8 @@ public class Game implements Runnable {
 	
 	//States
 	public GameState gameState;
-	public State menuState;
+	public MenuState menuState;
+	public GameOverState gameOverState;
 	public long startTime;
 	
 	//Input
@@ -61,6 +63,7 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler.getGame());
 		menuState = new MenuState(handler);
+		gameOverState = new GameOverState(handler.getGame());
 		State.setState(menuState);
 	}
 	

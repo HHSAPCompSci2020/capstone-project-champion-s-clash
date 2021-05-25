@@ -42,6 +42,11 @@ public class GameState extends State {
 		sky = new Sky(game, 0,0,1170, 720);
 
 	}
+	
+	public void gameOver(Champion c) {
+		game.gameOverState.setWinner(c);
+		State.setState(game.gameOverState);
+	}
 		
 	@Override
 	public void tick() {
@@ -52,6 +57,20 @@ public class GameState extends State {
 		tree.tick();
 		sky.tick();
 		timeLeft = (int)((game.startTime+60000-System.currentTimeMillis())/1000);
+		
+		if (p1.isDead()) {
+			gameOver(p2);
+		} else if(p2.isDead()) {
+			gameOver(p1);
+		} else {
+			if (timeLeft <= 0) {
+				if (p1.getHealth() > p2.getHealth()) {
+					gameOver(p1);
+				} else {
+					gameOver(p2);
+				}
+			}
+		}
 	}
 
 	public void setP1(Champion p) {

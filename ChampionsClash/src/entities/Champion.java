@@ -149,6 +149,14 @@ public abstract class Champion extends Entity{
 		y = -100;
 	}
 	
+	public boolean isDead() {
+		if(health <= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public void ifDie() {
 		if(health <= 0)
 			remove();
