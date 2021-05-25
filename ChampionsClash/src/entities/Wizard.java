@@ -2,6 +2,7 @@ package entities;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import championClash.Asset;
 import championClash.Game;
@@ -60,6 +61,11 @@ public class Wizard extends Champion{
 		}
 		*/
 	}
+	
+	public BufferedImage getImage() {
+		return Asset.wizardStand;
+	}
+
 
 	@Override
 	public void draw(Graphics g) {

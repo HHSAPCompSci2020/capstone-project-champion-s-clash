@@ -1,6 +1,7 @@
 package entities;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import championClash.Game;
 import championClash.Rectangle;
@@ -79,5 +80,6 @@ public abstract class Champion extends Entity{
 		this.speed = speed;
 	}
 	
+	public abstract BufferedImage getImage();
 }
 

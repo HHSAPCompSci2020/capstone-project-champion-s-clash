@@ -2,7 +2,9 @@ package championClash;
 
 import java.awt.Graphics;
 
+import entities.Archer;
 import entities.Champion;
+import entities.Warrior;
 import entities.Wizard;
 import states.State;
 
@@ -11,24 +13,34 @@ public class CharacterSelection extends UIObject {
 	private int playerNumber; 
 	private Champion assignedCharacter;
 	private Game game;
-	private Champion[] availableChar;
+	
+	private Champion[] availableChars;
+	private int currCharIndex;
 	
 
 	public CharacterSelection(float x, float y, int width, int height, int playerNumber, UIManager uiManager) {
 		super(x, y, width, height);
+		availableChars = new Champion[3];
+		availableChars[0] = new Wizard(game);
+		availableChars[1] = new Warrior(game);
+		availableChars[2] = new Archer(game);
 		this.playerNumber=playerNumber;
-		this.assignedCharacter = new Wizard(game);
-		//uiManager.addObject(new UIImageButton(450, 360, 300, 150, Asset.startButton1, Asset.startButton2, new ClickListener() {
+		this.currCharIndex = 0;
+		this.assignedCharacter = availableChars[currCharIndex];
+		uiManager.addObject(new UIImageButton((int)x+200, (int)y-125, 100, 76, Asset.arrowButton, Asset.arrowButton, new ClickListener() {
 
-		/*	@Override
+		@Override
 			public void onClick() {
-				handler.getMouseManager().setUIManager(null);
-				State.setState(handler.getGame().gameState);
+			    pickNextCharacter();
 			}}));
-			*/
 		// TODO Auto-generated constructor stub
 	}
 
+	private void pickNextCharacter() {
+		currCharIndex = (currCharIndex+1)%3;
+		assignedCharacter = availableChars[currCharIndex];
+	}
+	
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
@@ -39,12 +51,12 @@ public class CharacterSelection extends UIObject {
 	public void draw(Graphics g) {
 		//g.drawImage(, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, null);
 		if(playerNumber == 1) {
+			g.drawImage(assignedCharacter.getImage(), (int)x+70, (int)y-170, null);
 			g.drawImage(Asset.p1Text, (int)x, (int)y+37, 250, 50, null);
-			g.drawImage(Asset.arrowButton, (int)x+200, (int)y-125, 100, 50, null);
 		}
 		else if (playerNumber == 2) {
+			g.drawImage(assignedCharacter.getImage(), (int)x+70, (int)y-170, null);
 			g.drawImage(Asset.p2Text, (int)x, (int)y+37, 250, 50, null);
-			g.drawImage(Asset.arrowButton, (int)x+200, (int)y-125, 100, 50, null);
 		}
 		
 	}

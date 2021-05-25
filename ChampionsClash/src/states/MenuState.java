@@ -23,8 +23,6 @@ public class MenuState extends State{
 
 	public MenuState(Handler handler) {
 		super(handler);
-		player1Selection = new CharacterSelection(100, 550, 10, 10, 1, uiManager);
-		player2Selection = new CharacterSelection(800, 550, 10, 10, 2, uiManager);
 		menuText = new MenuText(handler.getGame(), 200, 90, 800, 300);
 		// TODO Auto-generated constructor stub
 		uiManager = new UIManager(handler);
@@ -37,6 +35,8 @@ public class MenuState extends State{
 				handler.getMouseManager().setUIManager(null);
 				State.setState(handler.getGame().gameState);
 			}}));
+		player1Selection = new CharacterSelection(100, 550, 10, 10, 1, uiManager);
+		player2Selection = new CharacterSelection(800, 550, 10, 10, 2, uiManager);
 	}
 	
 	public MenuState(Game game) {
