@@ -26,10 +26,10 @@ public class UIImageButton extends UIObject{
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		if(hovering) {
-			g.drawImage(ImageLoader.loadImage("/images/startButton2.png"), (int)x, (int)y, width, height, null);
+			g.drawImage(button2, (int)x, (int)y, width, height, null);
 		}
 		else {
-			g.drawImage(ImageLoader.loadImage("/images/startButton1.png"), (int)x, (int)y, width, height, null);
+			g.drawImage(button1, (int)x, (int)y, width, height, null);
 		}
 	}
 

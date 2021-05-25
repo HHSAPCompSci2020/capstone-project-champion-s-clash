@@ -3,14 +3,18 @@ package entities;
 import java.awt.Graphics;
 
 import championClash.Asset;
+import championClash.Game;
 
 public class MenuText extends Entity{
 
-	public MenuText(float x, float y, int width, int height) {
-		super(x, y, width, height);
+	public MenuText(Game game, float x, float y, int width, int height) {
+		super(game, x, y, width, height);
 		// TODO Auto-generated constructor stub
 	}
 
+	public MenuText(Game game) {
+		super(game);
+	}
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub

@@ -12,7 +12,7 @@ public class Asset {
 	public static BufferedImage archerStand, archerMove, archerAttack;
 	public static BufferedImage startButton1, startButton2;
 	public static BufferedImage bush, tree, sky;
-	public static BufferedImage menuText;
+	public static BufferedImage menuText, arrowButton, p1Text, p2Text;
 	
 	public static void initialize() {
 		warriorStand = ImageLoader.loadImage("/images/warriorStand.png");
@@ -31,6 +31,9 @@ public class Asset {
 		tree = ImageLoader.loadImage("/images/tree.png");
 		sky = ImageLoader.loadImage("/images/sky.png");
 		menuText = ImageLoader.loadImage("/images/menuText.png");
+		arrowButton = ImageLoader.loadImage("/images/arrow.png");
+		p1Text = ImageLoader.loadImage("/images/player1.png");
+		p2Text = ImageLoader.loadImage("/images/player2.png");
 		
 		
 	}

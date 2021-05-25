@@ -24,6 +24,8 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	public Champion p1, p2;
+	
 	
 	//States
 	public State gameState;
@@ -121,6 +123,22 @@ public class Game implements Runnable {
 		
 		stop();
 		
+	}
+	
+	public void setPlayer1Champ(Champion player1Champ) {
+		p1 = player1Champ;
+	}
+	
+	public void setPlayer2Champ(Champion player2Champ) {
+		p2 = player2Champ;
+	}
+	
+	public Champion getPlayer1Champ() {
+		return p1;
+	}
+	
+	public Champion getPlayer2Champ() {
+		return p2;
 	}
 	
 	public KeyManager getKeyManager(){
