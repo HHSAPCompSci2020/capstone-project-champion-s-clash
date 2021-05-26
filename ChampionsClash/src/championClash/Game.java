@@ -226,16 +226,5 @@ public class Game implements Runnable {
 		}
 	}
 	
-	/**
-	 * 
-	 * @param champ Champion that is tested for game collision.
-	 * @return false 
-	 */
-	public boolean hitsWorld(Champion champ) {
-		
-		
-		return false;
-	}
-	
 }
 
