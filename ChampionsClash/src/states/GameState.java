@@ -86,13 +86,13 @@ public class GameState extends State {
 
 	public void setP1(Champion p) {
 		p1 = p;
-		p1.setX(100);
+		p1.setX(300);
 		p1.setY(487);
 	}
 	
 	public void setP2(Champion p) {
 		p2 = p;
-		p1.setX(700);
+		p1.setX(800);
 		p1.setY(487);
 	}
 	

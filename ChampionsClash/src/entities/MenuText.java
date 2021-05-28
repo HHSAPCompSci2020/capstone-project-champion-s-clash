@@ -30,6 +30,7 @@ public class MenuText extends Entity{
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		g.drawImage(Asset.menuText, (int)x, (int)y, width, height, null);
+
 		
 	}
 

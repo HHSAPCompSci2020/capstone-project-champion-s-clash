@@ -1,6 +1,7 @@
 package states;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JOptionPane;
@@ -75,6 +76,13 @@ public class MenuState extends State{
 		menuText.draw(g);
 		player1Selection.draw(g);
 		player2Selection.draw(g);
+		g.setColor(Color.MAGENTA);
+		g.setFont(new Font("TimesRoman", Font.BOLD, 15));
+		g.drawString("Choose wisely, and enter...", 515, 520);
+		g.drawString("P1 CONTROLS:", 30, 675);
+		g.drawString("To move - W, A, D. To attack - SHIFT", 150, 675);
+		g.drawString("P2 CONTROLS:", 700, 675);
+		g.drawString("To move - UP, LEFT, RIGHT. To attack - SPACE", 820, 675);
 		
 	}
 
