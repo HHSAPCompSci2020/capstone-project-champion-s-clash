@@ -105,7 +105,7 @@ public class Warrior extends Champion{
 			
 			if(game.getKeyManager().jump1==true) {
 				changeImage(Asset.warriorStand);
-				accelerate(0, -5);
+				accelerate(0, -2);
 			}
 			if(game.getKeyManager().attack1==true && direction) {
 				changeImage(Asset.warriorAttackRight);

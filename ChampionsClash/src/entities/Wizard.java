@@ -73,6 +73,19 @@ public class Wizard extends Champion{
 				changeImage(Asset.wizardStand);
 				accelerate(0, -2);
 			}
+			if(game.getKeyManager().attack==true && direction) {
+				changeImage(Asset.wizardMoveRight);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} else if(game.getKeyManager().attack==true && !direction) {
+				changeImage(Asset.wizardMoveLeft);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} 
 			if(game.getKeyManager().attack==true) {
 				changeImage(Asset.wizardAttack);
 				fireBallX = (int) x + width;
@@ -97,8 +110,21 @@ public class Wizard extends Champion{
 			
 			if(game.getKeyManager().jump1==true) {
 				changeImage(Asset.wizardStand);
-				accelerate(0, -5);
+				accelerate(0, -2);
 			}
+			if(game.getKeyManager().attack1==true && direction) {
+				changeImage(Asset.wizardMoveRight);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} else if(game.getKeyManager().attack1==true && !direction) {
+				changeImage(Asset.wizardMoveLeft);
+				if(xMove > 0)
+					direction = true;
+				else if(xMove < 0)
+					direction = false;
+			} 
 			if(game.getKeyManager().attack1==true) {
 				changeImage(Asset.wizardAttack);
 				fireBallX = (int) x + width;

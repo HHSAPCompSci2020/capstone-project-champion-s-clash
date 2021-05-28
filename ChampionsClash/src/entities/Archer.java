@@ -73,7 +73,7 @@ public class Archer extends Champion{
 			}
 			
 			if(game.getKeyManager().jump==true) {
-				accelerate(0, -5);
+				accelerate(0, -2);
 				changeImage(Asset.archerStand);
 			}
 			if(game.getKeyManager().attack==true) {
