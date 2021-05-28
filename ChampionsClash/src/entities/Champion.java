@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
  */
 public abstract class Champion extends Entity{
 	
-	public static final int DEFAULT_HEALTH = 500;
+	public static final int DEFAULT_HEALTH = 100;
 	public static final float DEFAULT_SPEED = 30f;
 	public static final int DEFAULT_CHAMPION_WIDTH = 70,
 							DEFAULT_CHAMPION_HEIGHT = 100;
@@ -174,7 +174,7 @@ public abstract class Champion extends Entity{
 	public void takeDamageArcher(Archer archer) {
 		updateHitBox();
 		if(archer.arrow.intersects(hitBox)) {
-			health-=25;
+			health-=5;
 			archer.arrowX = -100;
 			archer.arrowY = -100;
 		}
@@ -186,7 +186,7 @@ public abstract class Champion extends Entity{
 	public void takeDamageWizard(Wizard wizard) {
 		updateHitBox();
 		if(wizard.fireBall.intersects(hitBox)) {
-			health-=34;
+			health-=8;
 			wizard.fireBallX = -100;
 			wizard.fireBallY = -100;
 		}
@@ -198,10 +198,10 @@ public abstract class Champion extends Entity{
 	public void takeDamageWarrior(Warrior warrior) {
 		updateHitBox();
 		if(warrior.sword.intersects(hitBox)) {
-			health-=50;
+			health-=10;
 			warrior.swordX = -100;
 			warrior.swordY = -100;
-				yMove-=50;
+				yMove-=10;
 		}
 	}
 	
