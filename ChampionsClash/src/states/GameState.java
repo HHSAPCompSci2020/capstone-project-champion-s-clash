@@ -31,9 +31,9 @@ public class GameState extends State {
 	private int timeLeft;
 	
 	public Rectangle floor =  new Rectangle(0, 600, 500, 1170);
-	public Rectangle ceiling =  new Rectangle(0, 0, 500, 1170);
-	public Rectangle wallLeft =  new Rectangle(-500, 0, 500, 2000);
-	public Rectangle wallRight =  new Rectangle(1170, 0, 500, 2000);
+	public Rectangle floorCollide =  new Rectangle(0, 555, 500, 1170);
+	public Rectangle ceiling =  new Rectangle(0, -500, 500, 1170);
+	public Rectangle ceilingCollide =  new Rectangle(0, -555, 500, 1170);
 	public Rectangle platform1 = new Rectangle(390, 450, 200, 100);
 	public Rectangle platform2 = new Rectangle(600, 450, 40, 200);
 	public Rectangle platform3 = new Rectangle(900, 450, 40, 200);
@@ -87,13 +87,13 @@ public class GameState extends State {
 	public void setP1(Champion p) {
 		p1 = p;
 		p1.setX(500);
-		p1.setY(487);
+		p1.setY(750);
 	}
 	
 	public void setP2(Champion p) {
 		p2 = p;
-		p1.setX(820);
-		p1.setY(487);
+		p1.setX(1000);
+		p1.setY(100);
 	}
 	
 	/**
@@ -128,27 +128,28 @@ public class GameState extends State {
 	 * @return whether or not the boolean collides with the world.
 	 */
 	public boolean hitsWorld(Champion champ) {
-		if(champ.getY() + champ.getHeight() >= floor.y) {
-			champ.setY((int) (floor.y) - 105);
+		champ.updateHitBox();
+		
+		if(champ.hitBox.intersects(floorCollide)) {
+			champ.setY((int) (floorCollide.y) - 60);
+		}
+		if(champ.hitBox.intersects(ceilingCollide)) {
+			champ.setY((int) (ceilingCollide.y) + 470);
+		}
+		if(champ.getX() < 0) {
+			champ.setX((0));
 			return true;
 		}
-		if(champ.getY() < ceiling.y) {
-			champ.setY((int) (ceiling.y));
+		if(champ.getX() + champ.getWidth() > game.getWidth()) {
+			champ.setX((int) (game.getWidth() - champ.getWidth() - 2));
 			return true;
 		}
-		if(champ.getX() <= wallLeft.x + 500) {
-			champ.setX((int) wallLeft.x + 500);
-			return true;
-		}
-		if(champ.getX() + 32 >= wallRight.x) {
-			champ.setX((int) (wallRight.x - 32));
-			return true;
-		}
-		if(champ.getX() >= 345 && champ.getX() <= 420 && champ.getY() >= 450) {
+		
+		if(champ.getX() >= 345 && champ.getX() <= 420 && champ.getY() >= 363) {
 			champ.setX(345);
 			return true;
 		}
-		if(champ.getX() <= 477 && champ.getX() >= 420 && champ.getY() >= 450) {
+		if(champ.getX() <= 477 && champ.getX() >= 420 && champ.getY() >= 363) {
 			champ.setX(475);
 			return true;
 		}

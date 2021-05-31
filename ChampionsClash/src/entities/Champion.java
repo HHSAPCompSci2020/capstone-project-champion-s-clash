@@ -22,7 +22,7 @@ public abstract class Champion extends Entity{
 	protected float speed;
 	protected float xMove, yMove;
 	protected double gravity;
-	protected Rectangle hitBox;
+	public Rectangle hitBox;
 	protected BufferedImage champImage;
 	protected boolean isPlayerOne;
 	
